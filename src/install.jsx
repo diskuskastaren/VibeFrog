@@ -332,6 +332,7 @@ function Footer() {
           letterSpacing: '0.06em',
         }}>
           <div>© 2026 VibeFrog</div>
+          <a href="/privacy" style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</a>
         </div>
       </div>
     </footer>

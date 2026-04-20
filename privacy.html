@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Privacy Policy — VibeFrog</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="src/styles.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .privacy-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--paper) 78%, transparent);
+      border-bottom: 1px solid var(--hair);
+    }
+    .privacy-topbar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 63px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .privacy-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .privacy-logo-text {
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .privacy-logo-badge {
+      padding: 2px 8px;
+      background: var(--paper-3);
+      border: 1px solid var(--hair);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .privacy-back {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .privacy-back:hover { color: var(--ink); }
+
+    .privacy-body {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    .privacy-kicker {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 20px;
+    }
+    .privacy-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--ink-3);
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .privacy-title {
+      font-family: var(--sans);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      color: var(--ink);
+      margin: 0 0 32px;
+    }
+
+    .privacy-meta {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink-3);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 0;
+      border-top: 1px solid var(--hair);
+      border-bottom: 1px solid var(--hair);
+      margin-bottom: 56px;
+    }
+
+    .privacy-body h2 {
+      font-family: var(--sans);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 48px 0 12px;
+    }
+    .privacy-body h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .privacy-body p {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      margin: 0 0 16px;
+    }
+
+    .privacy-body ul {
+      margin: 0 0 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .privacy-body ul li {
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink-2);
+      padding: 4px 0 4px 0;
+      display: flex;
+      gap: 10px;
+    }
+    .privacy-body ul li::before {
+      content: '—';
+      color: var(--ink-4);
+      flex-shrink: 0;
+    }
+
+    .privacy-body code {
+      font-family: var(--mono);
+      font-size: 13px;
+      background: var(--paper-2);
+      border: 1px solid var(--hair);
+      border-radius: 4px;
+      padding: 1px 6px;
+      color: var(--ink-2);
+    }
+
+    .privacy-highlight {
+      background: var(--paper-2);
+      border-left: 3px solid var(--frog-deep);
+      border-radius: 0 6px 6px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    .privacy-highlight p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .privacy-footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hair);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 600px) {
+      .privacy-body { padding: 48px 20px 80px; }
+      .privacy-topbar-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="privacy-topbar">
+    <div class="privacy-topbar-inner">
+      <a class="privacy-logo" href="VibeFrog.html">
+        <img src="assets/vibefrog-logo.png" alt="VibeFrog" style="height:40px;width:auto;"/>
+        <span class="privacy-logo-text">VibeFrog</span>
+        <span class="privacy-logo-badge">free</span>
+      </a>
+      <a class="privacy-back" href="VibeFrog.html">← Back to site</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="privacy-body">
+
+    <div class="privacy-kicker">Legal</div>
+    <h1 class="privacy-title">Privacy Policy</h1>
+
+    <div class="privacy-meta">
+      <span><strong>Effective date:</strong> April 20, 2026</span>
+      <span><strong>Product:</strong> VibeFrog browser extension</span>
+      <span><strong>Contact:</strong> <a href="mailto:hello@vibefrog.dev" style="color:inherit;">hello@vibefrog.dev</a></span>
+    </div>
+
+    <h2>Overview</h2>
+    <p>VibeFrog is a browser extension that helps users capture UI context and screenshots from webpages for AI-assisted workflows. This policy explains what the extension accesses, how it uses that information, and what happens to it.</p>
+
+    <div class="privacy-highlight">
+      <p>The short version: VibeFrog works entirely on your device. Nothing you capture is sent to any server. Nothing is stored in the cloud. Nothing is shared with anyone.</p>
+    </div>
+
+    <h2>What VibeFrog does</h2>
+    <p>VibeFrog lets you hold a modifier key, hover any element on any webpage, and click to copy a clean, AI-ready snapshot of that element to your clipboard. You can also right-click to capture a screenshot of a selected element. Both actions happen only when you explicitly trigger them — the extension does not run passively or monitor your browsing.</p>
+
+    <h2>Information the extension accesses</h2>
+    <p>To do its job, VibeFrog may access:</p>
+    <ul>
+      <li>Information about the element you hover over or select (its tag, attributes, visible text, and relevant structure)</li>
+      <li>The portion of the page needed to generate the output you request</li>
+      <li>Your clipboard, to write the captured output after you trigger a copy</li>
+      <li>Screenshots of selected elements, rendered locally, when you use the right-click capture flow</li>
+      <li>Local browser storage, for any extension settings or preferences you configure</li>
+    </ul>
+    <p>VibeFrog does not access your browsing history, passwords, cookies, form data, or any information unrelated to the element you choose to capture.</p>
+
+    <h2>How the information is used</h2>
+    <p>The information VibeFrog accesses is used only to provide its core functionality:</p>
+    <ul>
+      <li>Identifying the element you selected</li>
+      <li>Generating an AI-ready representation of that element</li>
+      <li>Writing that representation to your clipboard</li>
+      <li>Rendering and copying a screenshot of the selected element when requested</li>
+      <li>Storing your extension preferences locally</li>
+    </ul>
+    <p>This information is not analyzed, logged, or used for any other purpose.</p>
+
+    <h2>Clipboard usage</h2>
+    <p>VibeFrog writes to your clipboard only when you perform a capture action. It does not read from your clipboard. Clipboard access is strictly limited to placing the captured output where you can paste it into the tool of your choice.</p>
+
+    <h2>Screenshot handling</h2>
+    <p>When you right-click a selected element, VibeFrog renders a screenshot of that element locally using browser APIs. The resulting image is copied directly to your clipboard. It is not uploaded, stored, or transmitted anywhere. The screenshot exists only in your clipboard until you paste or clear it.</p>
+
+    <h2>Local processing</h2>
+    <p>All of VibeFrog's processing happens on your device, inside your browser. There is no backend server, no cloud processing pipeline, and no remote service involved in the capture or screenshot flow. The extension operates as a local-only tool from end to end.</p>
+
+    <h2>Data storage and retention</h2>
+    <p>VibeFrog does not store captured UI context or screenshots after they are placed on your clipboard — the extension itself holds no copy. If VibeFrog uses local browser storage (<code>chrome.storage.local</code>) to save your settings or preferences, that data stays on your device and is never transmitted. You can clear extension data at any time through your browser's extension settings.</p>
+
+    <h2>Third-party services</h2>
+    <p>VibeFrog does not use third-party analytics, tracking, or data processing services. No captured content is passed to external services as part of the extension's core functionality. The only external resource the extension relies on is your browser's built-in APIs.</p>
+
+    <h2>Chrome permissions</h2>
+    <p>VibeFrog requests only the permissions it needs to function. Depending on the version installed, these may include:</p>
+    <ul>
+      <li><code>activeTab</code> — lets VibeFrog access the content of the tab you are actively using when you trigger a capture. It does not grant access to other tabs or background browsing.</li>
+      <li><code>scripting</code> — allows VibeFrog to inject the content script that powers element inspection and overlay rendering on the current page.</li>
+      <li><code>clipboardWrite</code> — allows VibeFrog to write captured output to your clipboard after you trigger a copy action.</li>
+      <li><code>storage</code> — allows VibeFrog to save your preferences locally using Chrome's storage API. No data is synced remotely unless you have Chrome Sync enabled for extension data, which is controlled by your browser settings.</li>
+    </ul>
+    <p>You can review the permissions VibeFrog has requested at any time by visiting <strong>chrome://extensions</strong> in your browser.</p>
+
+    <h2>Data sharing and selling</h2>
+    <p>VibeFrog does not sell your data. VibeFrog does not share captured UI context, screenshots, or any other information with third parties. There is no advertising network, data broker, or external partner involved.</p>
+
+    <h2>User choices and controls</h2>
+    <p>You are always in control of when VibeFrog acts. Captures only happen when you trigger them. You can stop using VibeFrog at any time by disabling or uninstalling the extension through your browser. Extension data stored locally can be cleared through your browser's extension management settings.</p>
+
+    <h2>Children's privacy</h2>
+    <p>VibeFrog is not directed to children under the age of 13 and does not knowingly collect any information from children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>This Privacy Policy may be updated as VibeFrog evolves. When changes are made, the effective date at the top of this page will be updated. Continued use of the extension after any changes constitutes acceptance of the revised policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this Privacy Policy or how VibeFrog handles your data, reach out at <a href="mailto:hello@vibefrog.dev" style="color:var(--frog-deep);text-decoration:none;">hello@vibefrog.dev</a>.</p>
+
+    <div class="privacy-footer">
+      <span>© 2026 VibeFrog</span>
+      <a href="VibeFrog.html" style="color:inherit;text-decoration:none;">← Back to vibefrog.dev</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
