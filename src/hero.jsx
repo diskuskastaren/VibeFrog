@@ -1,0 +1,400 @@
+// hero.jsx — the fold-one hero
+// Left: eyebrow, headline, sub, CTAs, keyboard shortcut hint
+// Right: a live "snapshot" showing terminal + browser + a highlighted DOM element
+// with a real overlay/tooltip, styled like the extension.
+
+function Hero() {
+  return (
+    <section id="top" style={{ paddingTop: 80, paddingBottom: 60 }}>
+      <div className="wrap">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 1fr)',
+          gap: 64,
+          alignItems: 'center',
+        }} className="hero-grid">
+
+          {/* ── LEFT column ─────────────────────────── */}
+          <div>
+            <h1 className="display" style={{ fontSize: 'clamp(34px, 4.8vw, 64px)' }}>
+              <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+                Point, capture, paste.
+              </span>
+              <br/>
+              <span style={{
+                fontWeight: 400,
+                color: 'var(--frog-deep)',
+              }}>
+                Ship faster.
+              </span>
+            </h1>
+
+            <p style={{
+              marginTop: 28,
+              fontSize: 19,
+              lineHeight: 1.55,
+              maxWidth: 520,
+              color: 'var(--ink-2)',
+            }}>
+              VibeFrog lets you hold <Kbd>Alt</Kbd>, hover any element on any page,
+              and click to instantly copy an AI-ready snapshot to your clipboard.
+              Right-click does the same for screenshots, so you can grab structure
+              or visuals in seconds.
+            </p>
+
+            <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
+              <Button variant="primary" href="#install">
+                Add to Chrome
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5"
+                        stroke="currentColor" strokeWidth="1.6"
+                        strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </Button>
+              <Button variant="ghost" href="#sandbox">
+                Try it in-page →
+              </Button>
+            </div>
+
+            <div style={{
+              marginTop: 40,
+              display: 'flex',
+              gap: 28,
+              fontFamily: 'var(--mono)',
+              fontSize: 12,
+              color: 'var(--ink-3)',
+              letterSpacing: '0.04em',
+              flexWrap: 'wrap',
+            }}>
+              <span><Kbd>Alt</Kbd> <span style={{ opacity: 0.6 }}>hover</span></span>
+              <span><Kbd>Alt</Kbd>+click <span style={{ opacity: 0.6 }}>copy dom</span></span>
+              <span><Kbd>Alt</Kbd>+right-click <span style={{ opacity: 0.6 }}>screenshot</span></span>
+            </div>
+          </div>
+
+          {/* ── RIGHT column: static vignette ───────── */}
+          <HeroVignette />
+        </div>
+      </div>
+
+      {/* Stat strip */}
+      <div className="wrap" style={{ marginTop: 100 }}>
+        <div className="stats">
+          <div className="stat">
+            <div className="stat-v">Chrome</div>
+            <div className="stat-k">Works in most Chromium-based browsers</div>
+          </div>
+          <div className="stat">
+            <div className="stat-v">Free</div>
+            <div className="stat-k">Until 25th of April</div>
+          </div>
+          <div className="stat">
+            <div className="stat-v">100%</div>
+            <div className="stat-k">Local — nothing leaves the tab</div>
+          </div>
+          <div className="stat">
+            <div className="stat-v">0 ms</div>
+            <div className="stat-k">Boot time — it's a content script</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Hero vignette ──────────────────────────────────────
+   A stylized composition: mini browser page with a "Buy" button
+   highlighted by the real VibeFrog overlay style. Below it a
+   terminal showing the pasted payload. Everything is static but
+   rhythmic — subtle pulse on the overlay so it feels alive.
+   ──────────────────────────────────────────────────── */
+function HeroVignette() {
+  return (
+    <div style={{
+      position: 'relative',
+      minHeight: 440,
+    }}>
+      {/* Browser (back layer) */}
+      <BrowserFrame
+        url="shop.mosswear.co/p/lichen-hoodie"
+        style={{
+          position: 'relative',
+          transform: 'rotate(-1.2deg)',
+          zIndex: 1,
+        }}
+      >
+        <div style={{
+          padding: 24,
+          display: 'grid',
+          gridTemplateColumns: '96px 1fr',
+          gap: 18,
+          background: '#fff',
+        }}>
+          {/* product image placeholder */}
+          <div style={{
+            height: 96, borderRadius: 8,
+            background: 'repeating-linear-gradient(135deg, #eee8dc 0 8px, #e0d9c7 8px 16px)',
+            display: 'flex', alignItems: 'flex-end',
+            padding: 6,
+            fontFamily: 'var(--mono)', fontSize: 9,
+            color: '#6b6458',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+          }}>
+            product
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div style={{
+              fontFamily: 'var(--mono)', fontSize: 10,
+              color: 'var(--ink-4)', letterSpacing: '0.12em', textTransform: 'uppercase',
+            }}>Apparel</div>
+            <div style={{
+              fontFamily: 'var(--sans)', fontSize: 22, fontWeight: 600,
+              letterSpacing: '-0.02em', color: 'var(--ink)',
+            }}>Lichen hoodie</div>
+            <div style={{
+              fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink-3)',
+            }}>€129,00</div>
+
+            {/* The highlighted target element — animated lifecycle */}
+            <div style={{ position: 'relative', marginTop: 10, alignSelf: 'flex-start' }}>
+              <button
+                data-testid="buy-now"
+                style={{
+                  padding: '10px 20px',
+                  background: 'var(--ink)',
+                  color: 'var(--paper)',
+                  border: 'none',
+                  borderRadius: 6,
+                  fontFamily: 'var(--sans)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  position: 'relative',
+                  zIndex: 1,
+                }}
+              >
+                Add to bag
+              </button>
+
+              {/* Extension overlay — cycles blue hover → green flash */}
+              <div className="vf-overlay" style={{
+                position: 'absolute',
+                inset: -4,
+                border: '2px solid rgba(37,99,235,0.95)',
+                background: 'rgba(37,99,235,0.18)',
+                borderRadius: 6,
+                pointerEvents: 'none',
+              }}/>
+
+              {/* Click ripple */}
+              <div className="vf-ripple" style={{
+                position: 'absolute',
+                left: '50%', top: '50%',
+                width: 12, height: 12,
+                marginLeft: -6, marginTop: -6,
+                borderRadius: '50%',
+                border: '2px solid rgba(72,191,83,0.95)',
+                pointerEvents: 'none',
+              }}/>
+
+              {/* Animated cursor near button */}
+              <div className="vf-cursor" style={{
+                position: 'absolute',
+                left: '70%', top: '45%',
+                width: 22, height: 26,
+                pointerEvents: 'none',
+                filter: 'drop-shadow(0 3px 4px rgba(0,0,0,0.35))',
+                zIndex: 4,
+              }}>
+                <svg width="22" height="26" viewBox="0 0 28 34" fill="none">
+                  <path d="M3 2 L3 26 L9 21 L13 30 L17 28 L13 19 L21 19 Z"
+                        fill="#fff" stroke="#121311" strokeWidth="1.6" strokeLinejoin="round"/>
+                </svg>
+              </div>
+
+              {/* Tooltip — cycles selector → "✓ Copied" (placed ABOVE button to avoid terminal) */}
+              <div className="vf-tooltip" style={{
+                position: 'absolute',
+                left: 0,
+                bottom: '100%',
+                marginBottom: 8,
+                whiteSpace: 'nowrap',
+                background: 'rgba(17,24,39,0.96)',
+                color: '#f9fafb',
+                border: '1px solid rgba(75,85,99,0.95)',
+                borderRadius: 8,
+                padding: '6px 10px',
+                fontFamily: 'var(--mono)',
+                fontSize: 12,
+                pointerEvents: 'none',
+                zIndex: 5,
+              }}>
+                <span className="vf-tip-sel">[data-testid="buy-now"]</span>
+                <span className="vf-tip-ok">✓ Copied</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </BrowserFrame>
+
+      {/* Curved arrow — lives outside BrowserFrame (z:1) so it appears above terminal (z:2) */}
+      <svg className="vf-arrow"
+           width="200" height="160" viewBox="0 0 200 160"
+           style={{
+             position: 'absolute',
+             right: '8%', top: '38%',
+             zIndex: 3,
+             pointerEvents: 'none',
+             overflow: 'visible',
+           }}>
+        <defs>
+          <marker id="vf-arrowhead" markerWidth="10" markerHeight="10"
+                  refX="8" refY="5" orient="auto">
+            <path d="M0,0 L9,5 L0,10 z" fill="oklch(42% 0.12 148)"/>
+          </marker>
+        </defs>
+        <path className="vf-arrow-path"
+              d="M 10 8 C 20 80, 60 120, 160 148"
+              fill="none"
+              stroke="oklch(42% 0.12 148)"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeDasharray="6 6"
+              markerEnd="url(#vf-arrowhead)"/>
+        <text x="28" y="64"
+              fontFamily="JetBrains Mono, monospace"
+              fontSize="11"
+              fill="oklch(42% 0.12 148)"
+              letterSpacing="0.04em"
+              className="vf-arrow-label">
+          paste →
+        </text>
+      </svg>
+
+      {/* Terminal (front layer, overlap) */}
+      <div style={{
+        position: 'relative',
+        transform: 'translate(12%, -8%) rotate(1.4deg)',
+        zIndex: 2,
+        maxWidth: 440,
+        marginLeft: 'auto',
+      }}>
+        <TerminalFrame title="~/mosswear — claude-code">
+          <div>
+            <span className="t-prompt">›</span> <span className="t-user">make the add-to-bag button</span>
+            {'\n'}<span className="t-user">  disabled when cart is empty</span>
+            {'\n'}
+            {'\n'}<span className="t-dim">Which button? Paste the element.</span>
+            {'\n'}
+            {'\n'}<span className="t-prompt">›</span> <span className="t-flash">[paste]</span>
+            {'\n'}<span className="t-comment">// Target UI element:</span>
+            {'\n'}<span className="t-key">url</span>: <span className="t-str">shop.mosswear.co/p/lichen-hoodie</span>
+            {'\n'}<span className="t-key">text</span>: <span className="t-str">"Add to bag"</span>
+            {'\n'}<span className="t-key">selector</span>: <span className="t-str">[data-testid="buy-now"]</span>
+            {'\n'}<span className="t-key">html</span>: <span className="t-str">&lt;button data-testid=…&gt;</span>
+            <span className="caret"/>
+          </div>
+        </TerminalFrame>
+      </div>
+
+      {/* keyframes — 3.6s click cycle: hover(blue) → click → flash(green) → copied → reset */}
+      <style>{`
+        @keyframes vf-overlay {
+          0%, 42% {
+            border-color: rgba(37,99,235,0.95);
+            background: rgba(37,99,235,0.18);
+            transform: scale(1);
+          }
+          50% {
+            border-color: rgba(72,191,83,0.95);
+            background: rgba(72,191,83,0.34);
+            transform: scale(0.98);
+          }
+          70% {
+            border-color: rgba(72,191,83,0.95);
+            background: rgba(72,191,83,0.22);
+            transform: scale(1);
+          }
+          88%, 100% {
+            border-color: rgba(72,191,83,0);
+            background: rgba(72,191,83,0);
+            transform: scale(1);
+          }
+        }
+        .vf-overlay {
+          animation: vf-overlay 3.6s ease-in-out infinite;
+        }
+
+        @keyframes vf-ripple {
+          0%, 44% { opacity: 0; transform: scale(0.4); }
+          50%     { opacity: 1; transform: scale(1); }
+          68%     { opacity: 0; transform: scale(2.8); }
+          100%    { opacity: 0; transform: scale(2.8); }
+        }
+        .vf-ripple {
+          animation: vf-ripple 3.6s ease-out infinite;
+          transform-origin: center;
+        }
+
+        @keyframes vf-cursor {
+          0%, 40%  { transform: translate(0, 0); }
+          48%      { transform: translate(0, 2px) scale(0.92); }
+          56%      { transform: translate(0, 0) scale(1); }
+          100%     { transform: translate(0, 0); }
+        }
+        .vf-cursor { animation: vf-cursor 3.6s ease-in-out infinite; }
+
+        .vf-tip-sel, .vf-tip-ok {
+          display: inline-block;
+          transition: opacity 200ms;
+        }
+        @keyframes vf-tip-sel {
+          0%, 44%  { opacity: 1; }
+          50%, 82% { opacity: 0; }
+          88%, 100%{ opacity: 1; }
+        }
+        @keyframes vf-tip-ok {
+          0%, 44%  { opacity: 0; transform: translateY(-2px); }
+          50%, 82% { opacity: 1; transform: translateY(0); }
+          88%, 100%{ opacity: 0; transform: translateY(-2px); }
+        }
+        .vf-tip-sel { animation: vf-tip-sel 3.6s ease-in-out infinite; }
+        .vf-tip-ok  {
+          position: absolute; left: 10px; top: 6px;
+          color: #d4f5c9;
+          animation: vf-tip-ok 3.6s ease-in-out infinite;
+        }
+
+        /* Arrow: draws after click, fades out before reset */
+        @keyframes vf-arrow-draw {
+          0%, 52%  { stroke-dashoffset: 260; opacity: 0; }
+          60%      { opacity: 1; }
+          75%      { stroke-dashoffset: 0; opacity: 1; }
+          90%      { stroke-dashoffset: 0; opacity: 1; }
+          98%, 100%{ stroke-dashoffset: 0; opacity: 0; }
+        }
+        .vf-arrow-path {
+          stroke-dasharray: 260;
+          animation: vf-arrow-draw 3.6s ease-in-out infinite;
+        }
+        @keyframes vf-arrow-label {
+          0%, 60% { opacity: 0; }
+          75%, 92%{ opacity: 1; }
+          100%    { opacity: 0; }
+        }
+        .vf-arrow-label {
+          animation: vf-arrow-label 3.6s ease-in-out infinite;
+        }
+
+        @media (max-width: 900px) {
+          .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .vf-arrow { display: none; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+window.Hero = Hero;

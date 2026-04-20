@@ -1,0 +1,293 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - img "VibeFrog" [ref=e6]
+      - generic [ref=e7]: VibeFrog
+      - generic [ref=e8]: v0.1.0
+    - navigation [ref=e9]:
+      - link "Video" [ref=e10] [cursor=pointer]:
+        - /url: "#video"
+      - link "Sandbox" [ref=e11] [cursor=pointer]:
+        - /url: "#sandbox"
+      - link "Payload" [ref=e12] [cursor=pointer]:
+        - /url: "#payload"
+      - link "Install" [ref=e13] [cursor=pointer]:
+        - /url: "#install"
+      - link "Source ↗" [ref=e14] [cursor=pointer]:
+        - /url: https://github.com/diskuskastaren/hoverpick
+    - link "Add to Chrome" [ref=e15] [cursor=pointer]:
+      - /url: "#install"
+  - generic [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]: Chrome extension · v0.1.0 · for terminal-native devs
+        - heading "Lick a pixel, paste the DOM." [level=1] [ref=e21]:
+          - text: Lick a pixel,
+          - text: paste the DOM.
+        - paragraph [ref=e22]:
+          - text: VibeFrog is a browser extension for people who build UI from a terminal. Hold
+          - generic [ref=e23]: Alt
+          - text: ", hover anything on any page, click — a clean, AI-ready snapshot of that element is on your clipboard. No DevTools spelunking. No screenshot cropping."
+        - generic [ref=e24]:
+          - link "Add to Chrome" [ref=e25] [cursor=pointer]:
+            - /url: "#install"
+            - text: Add to Chrome
+            - img [ref=e26]
+          - link "Try it in-page →" [ref=e28] [cursor=pointer]:
+            - /url: "#sandbox"
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]: Alt
+            - text: hover
+          - generic [ref=e32]:
+            - generic [ref=e33]: Alt
+            - text: +click copy dom
+          - generic [ref=e34]:
+            - generic [ref=e35]: Alt
+            - text: +right-click screenshot
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e43]: shop.mosswear.co/p/lichen-hoodie
+          - generic [ref=e44]:
+            - generic [ref=e45]: product
+            - generic [ref=e46]:
+              - generic [ref=e47]: Apparel
+              - generic [ref=e48]: Lichen hoodie
+              - generic [ref=e49]: €129,00
+              - generic [ref=e50]:
+                - button "Add to bag" [ref=e51] [cursor=pointer]
+                - generic:
+                  - img
+                - generic:
+                  - generic: "[data-testid=\"buy-now\"]"
+                  - generic: ✓ Copied
+                - img:
+                  - generic: paste →
+        - generic [ref=e53]:
+          - generic [ref=e59]: ~/mosswear — claude-code
+          - generic [ref=e61]: "› make the add-to-bag button disabled when cart is empty Which button? Paste the element. › [paste] // Target UI element: url: shop.mosswear.co/p/lichen-hoodie text: \"Add to bag\" selector: [data-testid=\"buy-now\"] html: <button data-testid=…>"
+    - generic [ref=e64]:
+      - generic [ref=e65]:
+        - generic [ref=e66]: 0 ms
+        - generic [ref=e67]: Boot time — it's a content script
+      - generic [ref=e68]:
+        - generic [ref=e69]: ~2 kB
+        - generic [ref=e70]: Avg payload shape
+      - generic [ref=e71]:
+        - generic [ref=e72]: 100%
+        - generic [ref=e73]: Local — nothing leaves the tab
+      - generic [ref=e74]:
+        - generic [ref=e75]: MIT
+        - generic [ref=e76]: Source on GitHub
+  - generic [ref=e79]:
+    - generic [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]: 01 · how it works
+        - heading "The loop, in twenty seconds." [level=2] [ref=e83]
+      - paragraph [ref=e84]: Ask an agent to change something — it wants DOM for selectors, or a pixel-perfect crop for visual bugs. Lick. Paste. Fix.
+    - generic [ref=e86]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e96]: shop.mosswear.co/p/lichen-hoodie
+            - generic [ref=e97]:
+              - generic [ref=e98]: product shot
+              - generic [ref=e99]:
+                - generic [ref=e100]: Apparel · SS26
+                - generic [ref=e101]: Lichen hoodie
+                - generic [ref=e102]: €129,00
+                - generic [ref=e103]: Moss-dyed heavyweight cotton. Runs honest. Available XS–XXL.
+                - button "Add to bag" [ref=e104] [cursor=pointer]
+          - generic: ✓ Copied
+          - generic:
+            - img
+            - generic: Alt
+        - generic [ref=e105]:
+          - generic [ref=e111]: ~/mosswear — claude-code
+          - generic [ref=e112]: › make the add-to-bag button disabled when cart is empty Which button? Paste the element. ›
+        - generic [ref=e114]: 04 — click to copy dom
+      - generic [ref=e116]:
+        - button "Return to start (0)" [ref=e117] [cursor=pointer]:
+          - img [ref=e118]
+        - button "Play/pause (space)" [ref=e120] [cursor=pointer]:
+          - img [ref=e121]
+        - generic [ref=e124]: 0:08.84
+        - generic [ref=e129]: 0:20.00
+  - generic [ref=e132]:
+    - generic [ref=e133]:
+      - generic [ref=e134]:
+        - generic [ref=e136]: 02 · live sandbox
+        - heading "Don't install yet. Hold Alt and lick this page." [level=2] [ref=e137]:
+          - text: Don't install yet. Hold
+          - generic [ref=e138]: Alt
+          - text: and lick this page.
+      - paragraph [ref=e139]:
+        - text: This is the real thing — same selector logic, same overlay, same clipboard payload — running in-page. Hold
+        - generic [ref=e140]: Alt
+        - text: ", hover anything below, click to copy."
+    - generic [ref=e141]:
+      - generic [ref=e142]: Hold Alt to inspect
+      - generic [ref=e144]: "|"
+      - generic [ref=e145]: "Copy format:"
+      - generic [ref=e146]:
+        - button "Full text" [ref=e147] [cursor=pointer]
+        - button "Selector only" [ref=e148] [cursor=pointer]
+      - generic [ref=e149]: Results appear on the right →
+    - generic [ref=e150]:
+      - generic [ref=e152]:
+        - generic [ref=e158]: lab.vibefrog.dev/sandbox
+        - generic [ref=e159]:
+          - generic "site header" [ref=e160]:
+            - generic [ref=e161]: MOSSWEAR
+            - navigation "primary" [ref=e162]:
+              - link "Shop" [ref=e163] [cursor=pointer]:
+                - /url: "#shop"
+              - link "Lookbook" [ref=e164] [cursor=pointer]:
+                - /url: "#lookbook"
+              - link "About" [ref=e165] [cursor=pointer]:
+                - /url: "#about"
+              - link "Cart (2)" [ref=e166] [cursor=pointer]:
+                - /url: "#cart"
+          - region "product detail" [ref=e167]:
+            - generic "product image" [ref=e168]: product · 01 of 04
+            - generic [ref=e169]:
+              - generic [ref=e170]: Apparel · SS26
+              - heading "Lichen hoodie" [level=3] [ref=e171]
+              - generic [ref=e172]: €129,00
+              - paragraph [ref=e173]: Moss-dyed heavyweight cotton. Runs honest. Available in sizes XS through XXL.
+              - generic "size picker" [ref=e174]:
+                - button "XS" [ref=e175] [cursor=pointer]
+                - button "S" [ref=e176] [cursor=pointer]
+                - button "M" [ref=e177] [cursor=pointer]
+                - button "L" [ref=e178] [cursor=pointer]
+                - button "XL" [ref=e179] [cursor=pointer]
+                - button "XXL" [ref=e180] [cursor=pointer]
+              - form "purchase form" [ref=e181]:
+                - textbox "you@example.com" [ref=e182]
+                - button "Add to bag" [ref=e183] [cursor=pointer]
+              - list "product meta" [ref=e184]:
+                - listitem [ref=e185]: — ships in 2 days
+                - listitem [ref=e186]: — free returns, 30 days
+                - listitem [ref=e187]: — naturally dyed
+                - listitem [ref=e188]: — 380 g / m²
+      - generic [ref=e189]:
+        - generic [ref=e190]: clipboard — empty
+        - generic [ref=e191]:
+          - text: Hold
+          - generic [ref=e192]: Alt
+          - text: on your keyboard,
+          - text: hover anything in the page, then click.
+          - text: Your clipboard payload appears here.
+    - generic [ref=e193]: tip — on mac, Alt = ⌥ option. if your browser steals Alt, try a different window focus.
+  - generic [ref=e195]:
+    - generic [ref=e196]:
+      - generic [ref=e197]: 04 · what gets copied
+      - heading "Paste-ready payloads, shaped for language models." [level=2] [ref=e198]
+      - paragraph [ref=e199]: "Selectors are ranked: test IDs first, then stable id, then ARIA, then role, then a short structural fallback. Generated class names (css-1a2b3c…) are filtered out."
+    - generic [ref=e200]:
+      - generic [ref=e201]:
+        - generic [ref=e202]:
+          - generic [ref=e203]:
+            - generic [ref=e204]: Full text
+            - generic [ref=e205]: default — everything the model needs
+          - generic [ref=e206]: clipboard
+        - generic [ref=e207]: "// Target UI element: url: shop.mosswear.co/p/lichen-hoodie text: \"Add to bag\" best selector: [data-testid=\"buy-now\"] fallback selectors: #buy-btn, button[aria-label=\"Add to bag\"] html: <button data-testid=\"buy-now\" class=\"btn-primary\" aria-label=\"Add to bag\">Add to bag</button>"
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - generic [ref=e211]: Selector only
+            - generic [ref=e212]: for cypress / playwright snippets
+          - generic [ref=e213]: clipboard
+        - generic [ref=e214]: "[data-testid=\"buy-now\"]"
+    - generic [ref=e215]:
+      - generic [ref=e216]: selector priority
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219]: "01"
+          - generic [ref=e220]: data-testid
+          - generic [ref=e221]: Highest — authored for tests
+        - generic [ref=e222]:
+          - generic [ref=e223]: "02"
+          - generic [ref=e224]: stable id
+          - generic [ref=e225]: Non-numeric, no colons
+        - generic [ref=e226]:
+          - generic [ref=e227]: "03"
+          - generic [ref=e228]: aria-label
+          - generic [ref=e229]: Screen-reader-first
+        - generic [ref=e230]:
+          - generic [ref=e231]: "04"
+          - generic [ref=e232]: role + text
+          - generic [ref=e233]: Semantic fallback
+        - generic [ref=e234]:
+          - generic [ref=e235]: "05"
+          - generic [ref=e236]: short css
+          - generic [ref=e237]: Last resort, depth ≤ 4
+  - generic [ref=e240]:
+    - generic [ref=e241]:
+      - generic [ref=e242]: 03 · install
+      - heading "Two clicks, one modifier key." [level=2] [ref=e243]:
+        - text: Two clicks,
+        - text: one modifier key.
+      - paragraph [ref=e244]: VibeFrog is a Manifest V3 Chrome extension, works on any site. Flip the modifier to Ctrl or Shift if Alt conflicts with your OS. Pick full-text payload or selector-only. That's the whole config.
+      - generic [ref=e245]:
+        - link "Add to Chrome" [ref=e246] [cursor=pointer]:
+          - /url: "#"
+          - text: Add to Chrome
+          - img [ref=e247]
+        - link "View source →" [ref=e249] [cursor=pointer]:
+          - /url: https://github.com/diskuskastaren/hoverpick
+      - list [ref=e250]:
+        - listitem [ref=e251]: — Alt+click copies DOM
+        - listitem [ref=e252]: — Alt+right-click screenshots
+        - listitem [ref=e253]: — All local, zero tracking
+        - listitem [ref=e254]: — Open source, MIT
+        - listitem [ref=e255]: — Works on iframes
+        - listitem [ref=e256]: — Syncs your prefs
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e260]:
+          - img "VibeFrog" [ref=e261]
+          - generic [ref=e262]: VibeFrog
+        - generic [ref=e266]:
+          - generic [ref=e267]: Modifier key
+          - generic [ref=e268]: Alt ▾
+        - generic [ref=e269]:
+          - generic [ref=e270]: Copy format
+          - generic [ref=e271]: Full text ▾
+        - generic [ref=e273]: Screenshot on right-click
+        - generic [ref=e276]:
+          - generic [ref=e277]:
+            - text: Hold
+            - generic [ref=e278]: Alt
+            - text: to inspect
+          - generic [ref=e279]:
+            - generic [ref=e280]: Alt
+            - text: + Click to copy
+          - generic [ref=e281]:
+            - generic [ref=e282]: Alt
+            - text: + Right-click to screenshot
+      - generic [ref=e284]: ↑ the whole settings surface
+  - contentinfo [ref=e285]:
+    - generic [ref=e286]:
+      - generic [ref=e287]:
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - img "VibeFrog" [ref=e290]
+            - generic [ref=e291]: VibeFrog
+          - generic [ref=e292]: Built for people who would rather type a prompt than click through DevTools.
+        - generic [ref=e293]:
+          - link "top" [ref=e294] [cursor=pointer]:
+            - /url: "#top"
+          - link "video" [ref=e295] [cursor=pointer]:
+            - /url: "#video"
+          - link "sandbox" [ref=e296] [cursor=pointer]:
+            - /url: "#sandbox"
+          - link "payload" [ref=e297] [cursor=pointer]:
+            - /url: "#payload"
+          - link "install" [ref=e298] [cursor=pointer]:
+            - /url: "#install"
+          - link "source ↗" [ref=e299] [cursor=pointer]:
+            - /url: https://github.com/diskuskastaren/hoverpick
+      - generic [ref=e300]:
+        - generic [ref=e301]: © 2026 vibefrog · MIT licensed
+        - generic [ref=e302]: v0.1.0 · manifest_version 3
