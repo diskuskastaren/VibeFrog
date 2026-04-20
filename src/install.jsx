@@ -320,7 +320,6 @@ function Footer() {
             <a href="#sandbox" style={{ textDecoration: 'none', color: 'inherit' }}>sandbox</a>
             <a href="#payload" style={{ textDecoration: 'none', color: 'inherit' }}>payload</a>
             <a href="#install" style={{ textDecoration: 'none', color: 'inherit' }}>install</a>
-            <a href="https://github.com/diskuskastaren/hoverpick" style={{ textDecoration: 'none', color: 'inherit' }}>source ↗</a>
           </div>
         </div>
 
