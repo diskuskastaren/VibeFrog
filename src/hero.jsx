@@ -52,7 +52,7 @@ function Hero() {
                 </svg>
               </Button>
               <Button variant="ghost" href="#sandbox">
-                Try it in-page →
+                Try it in-page <span className="btn-arrow">↓</span>
               </Button>
             </div>
 
@@ -265,7 +265,7 @@ function HeroVignette() {
         </TerminalFrame>
       </div>
 
-      {/* keyframes — 3.6s click cycle: hover(blue) → click → flash(green) → copied → reset */}
+{/* keyframes — 3.6s click cycle: hover(blue) → click → flash(green) → copied → reset */}
       <style>{`
         @keyframes vf-overlay {
           0%, 42% {

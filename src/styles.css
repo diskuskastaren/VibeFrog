@@ -4,6 +4,10 @@
    Warm paper / ink / frog-green / muted teal
    ─────────────────────────────────────────────────────────── */
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Palette */
   --paper:       #F4EFE6;
@@ -135,6 +139,14 @@ a { color: inherit; }
 }
 .btn-ghost:hover {
   background: var(--paper-2);
+}
+.btn-ghost .btn-arrow {
+  display: inline-block;
+  animation: btn-arrow-bounce 1.6s ease-in-out infinite;
+}
+@keyframes btn-arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(3px); }
 }
 
 /* Keyboard key display */

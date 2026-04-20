@@ -6,11 +6,13 @@ function TopBar() {
       <div className="wrap topbar-inner">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <FrogMark size={56}/>
-          <img
-            src="assets/vibefrog-wordmark.png?v=4"
-            alt="VibeFrog"
-            style={{ height: 52, width: 'auto', display: 'inline-block', verticalAlign: 'middle' }}
-          />
+          <span style={{
+            fontFamily: 'var(--sans)',
+            fontWeight: 700,
+            fontSize: 28,
+            letterSpacing: '-0.02em',
+            color: 'var(--ink)',
+          }}>VibeFrog</span>
         </div>
         <nav>
           <a href="#video">HOW IT WORKS</a>
