@@ -11,7 +11,7 @@
 
 function VideoDemo() {
   return (
-    <section id="video">
+    <section id="how-it-works">
       <div className="wrap">
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 32, marginBottom: 40, flexWrap: 'wrap' }}>
           <div>

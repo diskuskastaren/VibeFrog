@@ -86,7 +86,7 @@ function Hero() {
           </div>
           <div className="stat">
             <div className="stat-v">Free</div>
-            <div className="stat-k">Until 25th of April</div>
+            <div className="stat-k">Until it isn't</div>
           </div>
           <div className="stat">
             <div className="stat-v">100%</div>

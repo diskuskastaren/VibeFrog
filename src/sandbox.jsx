@@ -134,7 +134,7 @@ function Sandbox() {
               <span style={{ color: '#8A8A80' }}>02 · live sandbox</span>
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', color: 'var(--paper)', maxWidth: 780 }}>
-              Don't install yet. Hold <Kbd dark>Alt</Kbd> and lick this page.
+              Don't install yet. Hold <Kbd dark>Alt</Kbd> and try it out below.
             </h2>
           </div>
           <p style={{ maxWidth: 360, color: '#B8B3A8', fontSize: 16 }}>
@@ -478,8 +478,8 @@ function ClipboardInspector({ copied }) {
           fontFamily: 'var(--mono)', fontSize: 13, color: '#6A6A60',
           lineHeight: 1.6,
         }}>
-          Hold <Kbd dark style={{ margin: '0 2px' }}>Alt</Kbd> on your keyboard,<br/>
-          hover anything in the page, then click.<br/><br/>
+          Hold Alt on your keyboard,<br/>
+          hover anything in the page, then left- or right-click.<br/><br/>
           Your clipboard payload appears here.
         </div>
       </div>

@@ -88,7 +88,7 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 84px;
+  height: 63px;
 }
 .topbar nav {
   display: flex;

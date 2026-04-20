@@ -13,11 +13,24 @@ function TopBar() {
             letterSpacing: '-0.02em',
             color: 'var(--ink)',
           }}>VibeFrog</span>
+          <span style={{
+            marginLeft: 10,
+            padding: '2px 8px',
+            background: 'var(--paper-3)',
+            border: '1px solid var(--hair)',
+            borderRadius: 4,
+            fontFamily: 'var(--mono)',
+            fontSize: 10,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: 'var(--ink-3)',
+          }}>free</span>
         </div>
         <nav>
-          <a href="#video">HOW IT WORKS</a>
+          <a href="#how-it-works">HOW IT WORKS</a>
           <a href="#sandbox">Sandbox</a>
           <a href="#payload">Payload</a>
+          <a href="#faq">FAQ</a>
           <a href="#install">Install</a>
         </nav>
         <Button variant="primary" href="#install" style={{ padding: '8px 14px', fontSize: 13 }}>
@@ -50,6 +63,8 @@ function App() {
       <div className="rule"/>
       <Sandbox/>
       <PayloadSpec/>
+      <div className="rule"/>
+      <FAQ/>
       <InstallSection/>
       <Footer/>
     </>

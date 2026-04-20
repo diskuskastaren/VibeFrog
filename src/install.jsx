@@ -11,7 +11,7 @@ function InstallSection() {
           alignItems: 'center',
         }} className="install-grid">
           <div>
-            <div className="eyebrow" style={{ marginBottom: 20 }}>03 · install</div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>05 · install</div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)' }}>
               Two clicks,<br/>
               <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--frog-deep)' }}>
@@ -31,9 +31,6 @@ function InstallSection() {
                   <path d="M7 2v8m0 0L4 7m3 3l3-3M3 12h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </Button>
-              <Button variant="ghost" href="https://github.com/diskuskastaren/hoverpick">
-                View source →
-              </Button>
             </div>
 
             <ul style={{
@@ -44,9 +41,7 @@ function InstallSection() {
               <li>— Alt+click copies DOM</li>
               <li>— Alt+right-click screenshots</li>
               <li>— All local, zero tracking</li>
-              <li>— Open source, MIT</li>
               <li>— Works on iframes</li>
-              <li>— Syncs your prefs</li>
             </ul>
           </div>
 
@@ -173,7 +168,7 @@ html:
     <section id="payload" style={{ background: 'var(--paper-2)', borderTop: '1px solid var(--hair)', borderBottom: '1px solid var(--hair)' }}>
       <div className="wrap">
         <div style={{ marginBottom: 40 }}>
-          <div className="eyebrow" style={{ marginBottom: 20 }}>04 · what gets copied</div>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>03 · what gets copied</div>
           <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', maxWidth: 840 }}>
             Paste-ready payloads, shaped for language models.
           </h2>
@@ -312,7 +307,7 @@ function Footer() {
               fontFamily: 'var(--mono)', fontSize: 12, color: '#7A7A70',
               maxWidth: 340,
             }}>
-              Built for people who would rather type a prompt than click through DevTools.
+              Built for people who want to capture UI context, not explain it twice.
             </div>
           </div>
 
@@ -321,7 +316,7 @@ function Footer() {
             fontFamily: 'var(--mono)', fontSize: 12,
           }}>
             <a href="#top" style={{ textDecoration: 'none', color: 'inherit' }}>top</a>
-            <a href="#video" style={{ textDecoration: 'none', color: 'inherit' }}>video</a>
+            <a href="#how-it-works" style={{ textDecoration: 'none', color: 'inherit' }}>how-it-works</a>
             <a href="#sandbox" style={{ textDecoration: 'none', color: 'inherit' }}>sandbox</a>
             <a href="#payload" style={{ textDecoration: 'none', color: 'inherit' }}>payload</a>
             <a href="#install" style={{ textDecoration: 'none', color: 'inherit' }}>install</a>
@@ -336,8 +331,7 @@ function Footer() {
           fontFamily: 'var(--mono)', fontSize: 11, color: '#5B5C55',
           letterSpacing: '0.06em',
         }}>
-          <div>© 2026 vibefrog · MIT licensed</div>
-          <div>v0.1.0 · manifest_version 3</div>
+          <div>© 2026 VibeFrog</div>
         </div>
       </div>
     </footer>
