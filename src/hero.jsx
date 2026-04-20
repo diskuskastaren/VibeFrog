@@ -239,44 +239,10 @@ function HeroVignette() {
         </div>
       </BrowserFrame>
 
-      {/* Curved arrow — lives outside BrowserFrame (z:1) so it appears above terminal (z:2) */}
-      <svg className="vf-arrow"
-           width="200" height="160" viewBox="0 0 200 160"
-           style={{
-             position: 'absolute',
-             right: '8%', top: '38%',
-             zIndex: 3,
-             pointerEvents: 'none',
-             overflow: 'visible',
-           }}>
-        <defs>
-          <marker id="vf-arrowhead" markerWidth="10" markerHeight="10"
-                  refX="8" refY="5" orient="auto">
-            <path d="M0,0 L9,5 L0,10 z" fill="oklch(42% 0.12 148)"/>
-          </marker>
-        </defs>
-        <path className="vf-arrow-path"
-              d="M 10 8 C 20 80, 60 120, 160 148"
-              fill="none"
-              stroke="oklch(42% 0.12 148)"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeDasharray="6 6"
-              markerEnd="url(#vf-arrowhead)"/>
-        <text x="28" y="64"
-              fontFamily="JetBrains Mono, monospace"
-              fontSize="11"
-              fill="oklch(42% 0.12 148)"
-              letterSpacing="0.04em"
-              className="vf-arrow-label">
-          paste →
-        </text>
-      </svg>
-
-      {/* Terminal (front layer, overlap) */}
+{/* Terminal (front layer, overlap) */}
       <div style={{
         position: 'relative',
-        transform: 'translate(12%, -8%) rotate(1.4deg)',
+        transform: 'translate(12%, -4%) rotate(1.4deg)',
         zIndex: 2,
         maxWidth: 440,
         marginLeft: 'auto',
@@ -367,30 +333,8 @@ function HeroVignette() {
           animation: vf-tip-ok 3.6s ease-in-out infinite;
         }
 
-        /* Arrow: draws after click, fades out before reset */
-        @keyframes vf-arrow-draw {
-          0%, 52%  { stroke-dashoffset: 260; opacity: 0; }
-          60%      { opacity: 1; }
-          75%      { stroke-dashoffset: 0; opacity: 1; }
-          90%      { stroke-dashoffset: 0; opacity: 1; }
-          98%, 100%{ stroke-dashoffset: 0; opacity: 0; }
-        }
-        .vf-arrow-path {
-          stroke-dasharray: 260;
-          animation: vf-arrow-draw 3.6s ease-in-out infinite;
-        }
-        @keyframes vf-arrow-label {
-          0%, 60% { opacity: 0; }
-          75%, 92%{ opacity: 1; }
-          100%    { opacity: 0; }
-        }
-        .vf-arrow-label {
-          animation: vf-arrow-label 3.6s ease-in-out infinite;
-        }
-
         @media (max-width: 900px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-          .vf-arrow { display: none; }
         }
       `}</style>
     </div>

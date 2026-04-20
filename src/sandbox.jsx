@@ -62,26 +62,46 @@ function Sandbox() {
       if (!el || !stage.contains(el)) return;
       const inspectable = el.closest('[data-sbx]');
       if (!inspectable) return;
-
       e.preventDefault();
       e.stopPropagation();
-
       const payload = buildPayload(inspectable, format);
       navigator.clipboard.writeText(payload).catch(() => {});
+      setCopied({ payload, selector: bestSelector(inspectable), at: Date.now() });
+      setHovered(null);
+    };
 
-      setCopied({
-        payload,
-        selector: bestSelector(inspectable),
-        at: Date.now(),
-      });
+    const onContextMenu = async (e) => {
+      if (!altDown) return;
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      if (!el || !stage.contains(el)) return;
+      const inspectable = el.closest('[data-sbx]');
+      if (!inspectable) return;
+      e.preventDefault();
+      e.stopPropagation();
+      try {
+        const canvas = await window.html2canvas(inspectable, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          logging: false,
+        });
+        const dataUrl = canvas.toDataURL('image/png');
+        canvas.toBlob(blob => {
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).catch(() => {});
+        });
+        setCopied({ payload: '(screenshot)', selector: bestSelector(inspectable), at: Date.now(), screenshot: dataUrl });
+      } catch {
+        setCopied({ payload: '(screenshot failed)', selector: bestSelector(inspectable), at: Date.now() });
+      }
       setHovered(null);
     };
 
     window.addEventListener('mousemove', onMove);
     window.addEventListener('click', onClick, true);
+    window.addEventListener('contextmenu', onContextMenu, true);
     return () => {
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('click', onClick, true);
+      window.removeEventListener('contextmenu', onContextMenu, true);
     };
   }, [altDown, format]);
 
@@ -148,23 +168,40 @@ function Sandbox() {
             {altDown ? 'Alt is down — move to inspect' : 'Hold Alt to inspect'}
           </span>
           <span style={{ color: '#5B5C55' }}>|</span>
-          <span>Copy format:</span>
-          <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.06)', borderRadius: 6, padding: 2 }}>
-            {['text','selector'].map(f => (
-              <button key={f} onClick={() => setFormat(f)}
-                style={{
-                  background: format === f ? 'var(--paper)' : 'transparent',
-                  color: format === f ? 'var(--ink)' : '#D6D2C6',
-                  border: 'none',
-                  padding: '4px 10px',
-                  borderRadius: 4,
-                  fontFamily: 'inherit', fontSize: 12, cursor: 'pointer',
-                  fontWeight: format === f ? 600 : 400,
-                }}>
-                {f === 'text' ? 'Full text' : 'Selector only'}
-              </button>
-            ))}
-          </div>
+          {/* Left-click group */}
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7 }}>
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" style={{ flexShrink: 0 }}>
+              <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="6.25" stroke="#5B5C55" strokeWidth="1.5"/>
+              <line x1="7" y1="0.75" x2="7" y2="8" stroke="#5B5C55" strokeWidth="1.5"/>
+              <path d="M1 7.5 Q1 1 7 1 L7 8 L1 8 Z" fill="rgba(255,255,255,0.3)" clipPath="inset(0 0 0 0 round 6px 0 0 6px)"/>
+            </svg>
+            <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.06)', borderRadius: 6, padding: 2 }}>
+              {[['text','Full text'],['selector','Selector only']].map(([f, label]) => (
+                <button key={f} onClick={() => setFormat(f)}
+                  style={{
+                    background: format === f ? 'var(--paper)' : 'transparent',
+                    color: format === f ? 'var(--ink)' : '#D6D2C6',
+                    border: 'none',
+                    padding: '4px 10px',
+                    borderRadius: 4,
+                    fontFamily: 'inherit', fontSize: 12, cursor: 'pointer',
+                    fontWeight: format === f ? 600 : 400,
+                  }}>
+                  {label}
+                </button>
+              ))}
+            </div>
+          </span>
+          <span style={{ color: '#5B5C55' }}>|</span>
+          {/* Right-click group */}
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'oklch(72% 0.15 148)' }}>
+            <svg width="14" height="20" viewBox="0 0 14 20" fill="none" style={{ flexShrink: 0 }}>
+              <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="6.25" stroke="oklch(52% 0.12 148)" strokeWidth="1.5"/>
+              <line x1="7" y1="0.75" x2="7" y2="8" stroke="oklch(52% 0.12 148)" strokeWidth="1.5"/>
+              <path d="M13 7.5 Q13 1 7 1 L7 8 L13 8 Z" fill="oklch(72% 0.15 148 / 0.45)" clipPath="inset(0 0 0 0 round 0 6px 0 0)"/>
+            </svg>
+            <span style={{ fontSize: 12 }}>Screenshot</span>
+          </span>
           <span style={{ marginLeft: 'auto', color: '#8A8A80', fontSize: 12 }}>
             {copied
               ? <span style={{ color: 'oklch(80% 0.14 148)' }}>✓ Copied to clipboard · {copied.selector}</span>
@@ -472,15 +509,25 @@ function ClipboardInspector({ copied }) {
           {copied.payload.length} chars
         </div>
       </div>
-      <pre style={{
-        flex: 1, margin: 0, padding: '18px 20px',
-        fontFamily: 'var(--mono)', fontSize: 12.5,
-        lineHeight: 1.6, color: '#D6D2C6',
-        whiteSpace: 'pre-wrap', wordBreak: 'break-word',
-        overflow: 'auto',
-      }}>
-        {copied.payload}
-      </pre>
+      {copied.screenshot ? (
+        <div style={{ flex: 1, padding: '18px 20px', overflow: 'auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <img src={copied.screenshot} alt="element screenshot"
+            style={{ maxWidth: '100%', borderRadius: 6, border: '1px solid rgba(255,255,255,0.1)' }}/>
+          <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: '#5B5C55' }}>
+            PNG copied to clipboard
+          </div>
+        </div>
+      ) : (
+        <pre style={{
+          flex: 1, margin: 0, padding: '18px 20px',
+          fontFamily: 'var(--mono)', fontSize: 12.5,
+          lineHeight: 1.6, color: '#D6D2C6',
+          whiteSpace: 'pre-wrap', wordBreak: 'break-word',
+          overflow: 'auto',
+        }}>
+          {copied.payload}
+        </pre>
+      )}
     </div>
   );
 }
