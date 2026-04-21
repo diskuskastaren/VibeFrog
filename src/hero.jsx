@@ -130,19 +130,7 @@ function HeroVignette() {
           gap: 18,
           background: '#fff',
         }}>
-          {/* product image placeholder */}
-          <div style={{
-            height: 96, borderRadius: 8,
-            background: 'repeating-linear-gradient(135deg, #eee8dc 0 8px, #e0d9c7 8px 16px)',
-            display: 'flex', alignItems: 'flex-end',
-            padding: 6,
-            fontFamily: 'var(--mono)', fontSize: 9,
-            color: '#6b6458',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-          }}>
-            product
-          </div>
+          <HoodieImage style={{ height: 96, borderRadius: 8 }}/>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             <div style={{
               fontFamily: 'var(--mono)', fontSize: 10,

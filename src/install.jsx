@@ -21,7 +21,7 @@ function InstallSection() {
             <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 480 }}>
               VibeFrog is a Manifest V3 Chrome extension, works on any site.
               Flip the modifier to Ctrl or Shift if Alt conflicts with your OS.
-              Pick full-text payload or selector-only. That's the whole config.
+              Pick UI Component or CSS Only output. That's the whole config.
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 30, flexWrap: 'wrap' }}>
@@ -38,7 +38,7 @@ function InstallSection() {
               display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 24px',
               fontFamily: 'var(--mono)', fontSize: 13, color: 'var(--ink-2)',
             }}>
-              <li>— Alt+click copies DOM</li>
+              <li>— Alt+click copies UI context</li>
               <li>— Alt+right-click screenshots</li>
               <li>— All local, zero tracking</li>
               <li>— Works on iframes</li>
@@ -81,7 +81,7 @@ function PopupMock() {
         <div style={{ height: 1, background: '#E8E3DC' }}/>
 
         <Row label="Modifier key" value="Alt"/>
-        <Row label="Copy format"  value="Full text"/>
+        <Row label="Copy format"  value="UI Component"/>
         <Row label="Screenshot on right-click" value={<Toggle on/>} valueIsNode/>
 
         <div style={{
@@ -162,7 +162,22 @@ fallback selectors: #buy-btn, button[aria-label="Add to bag"]
 html:
 <button data-testid="buy-now" class="btn-primary" aria-label="Add to bag">Add to bag</button>`;
 
-  const selectorOnly = `[data-testid="buy-now"]`;
+  const cssOnly = `/* VibeFrog — <button>#buy-btn */
+.your-element {
+  /* Layout */
+  display: inline-flex;
+  /* Colors */
+  background-color: #111111;
+  color: #ffffff;
+  /* Typography */
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  /* Spacing */
+  padding: 12px 24px;
+  /* Shape */
+  border-radius: 8px;
+}`;
 
   return (
     <section id="payload" style={{ background: 'var(--paper-2)', borderTop: '1px solid var(--hair)', borderBottom: '1px solid var(--hair)' }}>
@@ -181,11 +196,11 @@ html:
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '2fr 1fr',
+          gridTemplateColumns: '1fr 1fr',
           gap: 16,
         }} className="payload-grid">
-          <CodeCard title="Full text" subtitle="default — everything the model needs" code={full}/>
-          <CodeCard title="Selector only" subtitle="for cypress / playwright snippets" code={selectorOnly} compact/>
+          <CodeCard title="UI Component" subtitle="default — selector, html and visible text" code={full}/>
+          <CodeCard title="CSS Only" subtitle="steal styles — paste-ready computed CSS" code={cssOnly}/>
         </div>
 
         {/* Selector ranking visualization */}
@@ -313,12 +328,13 @@ function Footer() {
 
           <div style={{
             display: 'grid', gridTemplateColumns: 'repeat(3, auto)', gap: '8px 40px',
-            fontFamily: 'var(--mono)', fontSize: 12,
+            fontFamily: 'var(--mono)', fontSize: 12, textTransform: 'uppercase',
           }}>
             <a href="#top" style={{ textDecoration: 'none', color: 'inherit' }}>top</a>
-            <a href="#how-it-works" style={{ textDecoration: 'none', color: 'inherit' }}>how-it-works</a>
+            <a href="#how-it-works" style={{ textDecoration: 'none', color: 'inherit' }}>how it works</a>
             <a href="#sandbox" style={{ textDecoration: 'none', color: 'inherit' }}>sandbox</a>
             <a href="#payload" style={{ textDecoration: 'none', color: 'inherit' }}>payload</a>
+            <a href="#faq" style={{ textDecoration: 'none', color: 'inherit' }}>faq</a>
             <a href="#install" style={{ textDecoration: 'none', color: 'inherit' }}>install</a>
           </div>
         </div>

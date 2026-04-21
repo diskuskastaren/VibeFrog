@@ -118,7 +118,63 @@ function Dot() {
   }}/>;
 }
 
+/* ── HoodieImage: lichen hoodie SVG illustration ─────────────── */
+function HoodieImage({ style = {}, ...rest }) {
+  return (
+    <div {...rest} style={{
+      background: 'linear-gradient(160deg, #e8ede4 0%, #d8e0d2 100%)',
+      borderRadius: 'inherit',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      ...style,
+    }}>
+      <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg"
+        style={{ width: '72%', height: '72%', display: 'block' }}>
+
+        {/* Left sleeve */}
+        <path d="M 48 88 L 30 98 L 4 178 L 28 185 L 52 105" fill="#7d9e73"/>
+        {/* Left cuff */}
+        <path d="M 4 170 L 4 185 L 28 185 L 28 170 Z" fill="#6a8a60"/>
+
+        {/* Right sleeve */}
+        <path d="M 152 88 L 170 98 L 196 178 L 172 185 L 148 105" fill="#7d9e73"/>
+        {/* Right cuff */}
+        <path d="M 196 170 L 196 185 L 172 185 L 172 170 Z" fill="#6a8a60"/>
+
+        {/* Body */}
+        <path d="M 48 88 L 44 222 L 156 222 L 152 88 Z" fill="#7d9e73"/>
+
+        {/* Hem rib */}
+        <rect x="44" y="210" width="112" height="12" rx="1" fill="#6a8a60"/>
+
+        {/* Hood outer shape */}
+        <path d="M 48 88 C 45 65, 56 28, 100 20 C 144 28, 155 65, 152 88 Z" fill="#7d9e73"/>
+
+        {/* Hood shadow line */}
+        <path d="M 48 88 C 45 65, 56 28, 100 20 C 144 28, 155 65, 152 88"
+          fill="none" stroke="#6a8a60" strokeWidth="1"/>
+
+        {/* Hood interior */}
+        <path d="M 72 88 C 70 70, 80 44, 100 38 C 120 44, 130 70, 128 88 Z" fill="#4d6645"/>
+
+        {/* Kangaroo pocket */}
+        <path d="M 66 158 L 62 198 L 138 198 L 134 158 Z"
+          fill="none" stroke="#6a8a60" strokeWidth="1.5" strokeLinejoin="round"/>
+        <line x1="100" y1="158" x2="100" y2="198" stroke="#6a8a60" strokeWidth="1"/>
+
+        {/* Drawstrings */}
+        <line x1="88" y1="88" x2="83" y2="118" stroke="#6a8a60" strokeWidth="1.5" strokeLinecap="round"/>
+        <line x1="112" y1="88" x2="117" y2="118" stroke="#6a8a60" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle cx="83" cy="121" r="3" fill="#6a8a60"/>
+        <circle cx="117" cy="121" r="3" fill="#6a8a60"/>
+      </svg>
+    </div>
+  );
+}
+
 Object.assign(window, {
-  FrogMark, Kbd, Button, BrowserFrame, TerminalFrame, Tongue, FrogIllustration, Dot,
+  FrogMark, Kbd, Button, BrowserFrame, TerminalFrame, Tongue, FrogIllustration, Dot, HoodieImage,
   useState, useEffect, useRef,
 });

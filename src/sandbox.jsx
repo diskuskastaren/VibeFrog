@@ -10,7 +10,7 @@ function Sandbox() {
   const [altDown, setAltDown] = useState(false);
   const [hovered, setHovered] = useState(null);
   const [copied, setCopied] = useState(null); // {payload, selector, at}
-  const [format, setFormat] = useState('text'); // text | selector
+  const [format, setFormat] = useState('text'); // text | css
   const [lastMouse, setLastMouse] = useState({ x: 0, y: 0 });
 
   // Keyboard listeners
@@ -176,7 +176,7 @@ function Sandbox() {
               <path d="M1 7.5 Q1 1 7 1 L7 8 L1 8 Z" fill="rgba(255,255,255,0.3)" clipPath="inset(0 0 0 0 round 6px 0 0 6px)"/>
             </svg>
             <div style={{ display: 'inline-flex', background: 'rgba(255,255,255,0.06)', borderRadius: 6, padding: 2 }}>
-              {[['text','Full text'],['selector','Selector only']].map(([f, label]) => (
+              {[['text','UI Component'],['css','CSS Only']].map(([f, label]) => (
                 <button key={f} onClick={() => setFormat(f)}
                   style={{
                     background: format === f ? 'var(--paper)' : 'transparent',
@@ -370,15 +370,7 @@ function MockPage() {
         gridTemplateColumns: '220px 1fr',
         gap: 28,
       }}>
-        <div data-sbx aria-label="product image" style={{
-          height: 280, borderRadius: 8,
-          background: 'repeating-linear-gradient(135deg, #eee8dc 0 10px, #e0d9c7 10px 20px)',
-          display: 'flex', alignItems: 'flex-end', padding: 10,
-          fontFamily: 'var(--mono)', fontSize: 11, color: '#6b6458',
-          letterSpacing: '0.08em', textTransform: 'uppercase',
-        }}>
-          product · 01 of 04
-        </div>
+        <HoodieImage data-sbx aria-label="product image" style={{ height: 280, borderRadius: 8 }}/>
 
         <div>
           <div data-sbx style={{
@@ -564,7 +556,10 @@ function fallbackSelectors(el) {
 
 function buildPayload(el, format) {
   const sel = bestSelector(el);
-  if (format === 'selector') return sel;
+
+  if (format === 'css') {
+    return buildCssPayload(el, sel);
+  }
 
   const visibleText = (el.innerText || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 160);
   const fb = fallbackSelectors(el);
@@ -576,6 +571,99 @@ function buildPayload(el, format) {
   lines.push(`best selector: ${sel}`);
   if (fb.length) lines.push(`fallback selectors: ${fb.join(', ')}`);
   lines.push(`html:\n${outer}`);
+  return lines.join('\n');
+}
+
+function buildCssPayload(el, sel) {
+  const computed = window.getComputedStyle(el);
+  const parentComputed = el.parentElement ? window.getComputedStyle(el.parentElement) : null;
+  const tag = el.tagName.toLowerCase();
+  const id = el.id ? `#${el.id}` : '';
+
+  const CSS_SECTIONS = {
+    Layout: ['display','position','top','right','bottom','left','z-index','overflow-x','overflow-y','float'],
+    Dimensions: ['width','height','min-width','max-width','min-height','max-height','box-sizing','aspect-ratio'],
+    'Flex & Grid': ['flex-direction','flex-wrap','flex-grow','flex-shrink','flex-basis','align-items','align-self','align-content','justify-content','justify-self','justify-items','gap','row-gap','column-gap','grid-template-columns','grid-template-rows','grid-column','grid-row'],
+    Colors: ['color','background-color','background-image','background-size','background-position','background-repeat','opacity','mix-blend-mode'],
+    Typography: ['font-family','font-size','font-weight','font-style','line-height','letter-spacing','text-align','text-transform','text-decoration','white-space','word-break'],
+    Spacing: ['padding','margin'],
+    Shape: ['border-radius','border','box-shadow','outline'],
+    Effects: ['transform','filter','backdrop-filter','transition'],
+    Interaction: ['cursor','pointer-events','user-select'],
+  };
+
+  const BORING = {
+    float: ['none'], 'z-index': ['auto'], 'overflow-x': ['visible'], 'overflow-y': ['visible'],
+    opacity: ['1'], transform: ['none','matrix(1, 0, 0, 1, 0, 0)'], filter: ['none'],
+    'backdrop-filter': ['none'], 'mix-blend-mode': ['normal'], 'pointer-events': ['auto'],
+    'user-select': ['auto','text'], 'min-width': ['auto','0px'], 'min-height': ['auto','0px'],
+    'max-width': ['none'], 'max-height': ['none'], 'aspect-ratio': ['auto'],
+    'box-sizing': ['content-box'], 'background-image': ['none'], 'background-size': ['auto','auto auto'],
+    'background-position': ['0% 0%'], 'background-repeat': ['repeat','repeat repeat'],
+    outline: ['0px none currentcolor','none'], 'box-shadow': ['none'], 'text-transform': ['none'],
+    'font-style': ['normal'], 'letter-spacing': ['normal'], 'word-break': ['normal'],
+    'white-space': ['normal'], 'line-height': ['normal'], 'align-self': ['auto'],
+    'justify-self': ['auto','normal'], 'flex-grow': ['0'], 'flex-shrink': ['1'],
+    'flex-basis': ['auto'], 'grid-column': ['auto'], 'grid-row': ['auto'],
+    'flex-direction': ['row'], 'flex-wrap': ['nowrap'], 'align-content': ['normal'],
+    'grid-template-columns': ['none'], 'grid-template-rows': ['none'],
+    'text-decoration': ['none solid currentcolor','none'],
+    transition: ['all 0s ease 0s'],
+  };
+
+  const INHERITED = new Set(['font-size','font-weight','font-style','line-height','letter-spacing','text-align','text-transform','white-space','word-break','cursor']);
+
+  function get(prop) {
+    return computed.getPropertyValue(prop).trim();
+  }
+
+  function fourSides(prefix, sep = '-') {
+    const t = get(`${prefix}${sep}top`), r = get(`${prefix}${sep}right`);
+    const b = get(`${prefix}${sep}bottom`), l = get(`${prefix}${sep}left`);
+    if (!t && !r && !b && !l) return null;
+    const tv = t||'0px', rv = r||'0px', bv = b||'0px', lv = l||'0px';
+    if (tv===rv && rv===bv && bv===lv) return tv;
+    if (tv===bv && rv===lv) return `${tv} ${rv}`;
+    if (rv===lv) return `${tv} ${rv} ${bv}`;
+    return `${tv} ${rv} ${bv} ${lv}`;
+  }
+
+  const display = get('display');
+  const lines = [`/* VibeFrog — <${tag}>${id} */`, '.your-element {'];
+  let hasAny = false;
+
+  for (const [section, props] of Object.entries(CSS_SECTIONS)) {
+    if (section === 'Flex & Grid' && !display.includes('flex') && !display.includes('grid')) continue;
+
+    const sectionLines = [];
+
+    if (section === 'Spacing') {
+      const p = fourSides('padding'); if (p) sectionLines.push(`padding: ${p};`);
+      const m = fourSides('margin'); if (m && m !== '0px') sectionLines.push(`margin: ${m};`);
+    } else if (section === 'Shape') {
+      const bdr = get('border-radius'); if (bdr && bdr !== '0px') sectionLines.push(`border-radius: ${bdr};`);
+      const bs = get('box-shadow'); if (bs && bs !== 'none') sectionLines.push(`box-shadow: ${bs};`);
+      const bw = get('border-top-width'), bst = get('border-top-style'), bc = get('border-top-color');
+      if (bst && bst !== 'none') sectionLines.push(`border: ${bw} ${bst} ${bc};`);
+    } else {
+      for (const prop of props) {
+        const v = get(prop);
+        if (!v) continue;
+        const boring = BORING[prop];
+        if (boring && boring.includes(v)) continue;
+        if (INHERITED.has(prop) && parentComputed && parentComputed.getPropertyValue(prop).trim() === v) continue;
+        sectionLines.push(`${prop}: ${v};`);
+      }
+    }
+
+    if (!sectionLines.length) continue;
+    lines.push(`  /* ${section} */`);
+    sectionLines.forEach(l => lines.push(`  ${l}`));
+    hasAny = true;
+  }
+
+  if (!hasAny) lines.push('  /* No distinctive styles — element inherits from parent */');
+  lines.push('}');
   return lines.join('\n');
 }
 

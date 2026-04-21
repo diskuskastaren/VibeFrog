@@ -122,16 +122,7 @@ function VideoScene() {
 
           {/* page content */}
           <div style={{ padding: 48, display: 'flex', gap: 48 }}>
-            <div style={{
-              width: 320, height: 420, borderRadius: 10,
-              background: 'repeating-linear-gradient(135deg, #eee8dc 0 14px, #e0d9c7 14px 28px)',
-              display: 'flex', alignItems: 'flex-end',
-              padding: 14,
-              fontFamily: 'var(--mono)', fontSize: 13, color: '#6b6458',
-              letterSpacing: '0.06em', textTransform: 'uppercase',
-            }}>
-              product shot
-            </div>
+            <HoodieImage aria-label="product image" style={{ width: 320, height: 420, borderRadius: 10, flexShrink: 0 }}/>
             <div style={{ flex: 1, paddingTop: 16 }}>
               <div style={{
                 fontFamily: 'var(--mono)', fontSize: 14,
@@ -455,9 +446,9 @@ function ScreenshotClip({ t }) {
       <div style={{
         position: 'relative',
         height: 200,
-        background: 'repeating-linear-gradient(135deg, #eee8dc 0 14px, #e0d9c7 14px 28px)',
         overflow: 'hidden',
       }}>
+        <HoodieImage style={{ position: 'absolute', inset: 0, borderRadius: 0 }}/>
         {/* Crop mask overlay that recedes as fill increases */}
         <div style={{
           position: 'absolute', inset: 0,
