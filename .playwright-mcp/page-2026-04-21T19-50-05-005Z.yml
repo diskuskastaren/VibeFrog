@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - img [ref=e4]
+      - generic [ref=e5]: VibeFrog
+    - generic [ref=e6]: 03 What gets copied
+    - heading "Paste-ready. Shaped for AI." [level=2] [ref=e7]:
+      - text: Paste-ready.
+      - text: Shaped for
+      - text: AI.
+    - paragraph [ref=e8]: Every click produces a structured snapshot — selectors ranked by stability, clean HTML, visible text.
+    - generic [ref=e9]:
+      - generic [ref=e10]: test IDs first, then stable id, then ARIA
+      - generic [ref=e12]: generated class names (css-1a2b3c…) filtered out
+      - generic [ref=e14]: "CSS Only mode: computed styles, paste-ready"
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]: UI Component
+      - generic [ref=e20]: clipboard ✓
+    - generic [ref=e21]:
+      - generic [ref=e22]: UI Component
+      - generic [ref=e23]: CSS Only
+    - generic [ref=e24]: "// Target UI element: url: shop.mosswear.co/p/lichen-hoodie text: \"Add to bag\" best selector: [data-testid=\"buy-now\"] fallback: #buy-btn, button[aria-label=\"Add to bag\"] html: <button data-testid=\"buy-now\" class=\"btn-primary\" aria-label=\"Add to bag\">Add to bag</button>"
+    - generic [ref=e26]: ✓ Copied to clipboard

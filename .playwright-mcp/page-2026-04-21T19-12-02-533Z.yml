@@ -1,0 +1,22 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: 03 What gets copied
+    - heading "Paste-ready. Shaped for language models." [level=2] [ref=e4]:
+      - text: Paste-ready.
+      - text: Shaped for
+      - text: language models.
+    - paragraph [ref=e5]: Every click produces a structured snapshot — selectors ranked by stability, clean HTML, visible text. No noise, no generated class names.
+    - generic [ref=e6]:
+      - generic [ref=e7]: test IDs ranked first, then stable id, then ARIA
+      - generic [ref=e9]: generated class names (css-1a2b3c…) filtered out
+      - generic [ref=e11]: "CSS Only mode: computed styles, paste-ready"
+      - generic [ref=e13]: nothing leaves your browser — ever
+  - generic [ref=e16]:
+    - generic [ref=e17]:
+      - generic [ref=e18]: UI Component
+      - generic [ref=e19]: clipboard ✓
+    - generic [ref=e20]:
+      - generic [ref=e21]: UI Component
+      - generic [ref=e22]: CSS Only
+    - generic [ref=e23]: "// Target UI element: url: shop.mosswear.co/p/lichen-hoodie text: \"Add to bag\" best selector: [data-testid=\"buy-now\"] fallback selectors: #buy-btn, button[aria-label=\"Add to bag\"] html: <button data-testid=\"buy-now\" class=\"btn-primary\" aria-label=\"Add to bag\">Add to bag</button> // Selector priority: data-testid > stable id > aria-label > role+text > css"
+    - generic [ref=e25]: ✓ Copied to clipboard

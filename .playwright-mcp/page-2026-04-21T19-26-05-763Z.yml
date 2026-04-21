@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: 04 Screenshot mode
+    - heading "Right-click. Screenshot. Pasted." [level=2] [ref=e4]:
+      - text: Right-click.
+      - text: Screenshot.
+      - text: Pasted.
+    - paragraph [ref=e5]:
+      - text: Hold
+      - generic [ref=e6]: Alt
+      - text: and right-click any element to capture a screenshot of just that component. The image lands straight in your clipboard.
+    - generic [ref=e7]:
+      - text: Left-click — copies UI context text
+      - text: Right-click — captures screenshot
+      - text: Modifier — configurable (Alt / Ctrl / Shift)
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e15]: shop.mosswear.co/p/lichen-hoodie
+      - generic [ref=e17]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: Lichen hoodie
+          - generic [ref=e21]: €129,00
+          - button "Add to bag" [ref=e23]
+        - generic [ref=e25]:
+          - generic [ref=e26]:
+            - img [ref=e27]
+            - text: Screenshot element
+          - generic [ref=e31]: Copy selector
+          - generic [ref=e32]: Copy HTML
+        - img [ref=e34]
+    - generic [ref=e37]:
+      - generic [ref=e38]: →
+      - generic [ref=e39]: clipboard
+    - generic [ref=e45]:
+      - generic [ref=e46]: $ paste screenshot here ↓
+      - generic [ref=e49]: screenshot · 1× PNG

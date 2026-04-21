@@ -1,0 +1,18 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - img "VibeFrog" [ref=e4]
+      - generic [ref=e5]:
+        - generic [ref=e6]: VibeFrog
+        - generic [ref=e7]: Free
+    - heading "Any element. One click." [level=1] [ref=e8]:
+      - text: Any element.
+      - emphasis [ref=e9]: One click.
+    - generic [ref=e10]: Alt + hover · click to copy · right-click to screenshot
+  - generic [ref=e14]:
+    - generic [ref=e15]:
+      - generic [ref=e16]: "[data-testid=\"buy-now\"]"
+      - generic [ref=e17]: copied ✓
+    - generic [ref=e18]:
+      - generic [ref=e19]: Works on any site
+      - generic [ref=e20]: local-only

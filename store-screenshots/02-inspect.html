@@ -1,0 +1,82 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;background:#121311;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;}
+.left{flex:0 0 760px;padding:80px 60px 80px 120px;display:flex;flex-direction:column;justify-content:center;gap:32px;}
+.logo-row{display:flex;align-items:center;gap:16px;}
+.logo-img{width:140px;height:140px;object-fit:contain;}
+.logo-text{font-size:28px;font-weight:700;letter-spacing:-.02em;color:#F4EFE6;}
+.step{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:oklch(72% 0.15 148);display:flex;align-items:center;gap:12px;}
+.step::before{content:'02';font-size:13px;background:oklch(42% 0.12 148);color:#fff;border-radius:4px;padding:3px 8px;}
+h2{font-size:118px;font-weight:700;letter-spacing:-.04em;line-height:.9;color:#F4EFE6;}
+p{font-size:24px;line-height:1.6;color:#B8B3A8;}
+.kbd{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:18px;background:#2a2b27;border:1px solid rgba(255,255,255,.2);border-bottom-width:2px;border-radius:5px;padding:4px 12px;color:#F4EFE6;}
+.tip{font-family:'JetBrains Mono',monospace;font-size:15px;color:#5B5C55;border-top:1px solid rgba(255,255,255,.08);padding-top:28px;line-height:2;}
+.tip span{color:#8A8A80;}
+.right{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 80px;}
+.browser{width:100%;max-width:1020px;background:#fff;border-radius:16px;border:1px solid #000;box-shadow:0 40px 100px rgba(0,0,0,.6);overflow:hidden;position:relative;}
+.chrome{display:flex;align-items:center;gap:12px;padding:16px 22px;background:#efebe2;border-bottom:1px solid #1c1d1a;}
+.dots{display:flex;gap:8px;}
+.dot{width:15px;height:15px;border-radius:50%;border:1px solid rgba(0,0,0,.2);}
+.url-bar{flex:1;height:34px;background:#F4EFE6;border:1px solid rgba(18,19,17,.1);border-radius:8px;padding:0 16px;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:15px;color:#5B5C55;}
+.page{padding:52px;display:flex;gap:52px;min-height:400px;}
+.img-block{width:260px;flex-shrink:0;height:320px;border-radius:12px;background:repeating-linear-gradient(135deg,#eee8dc 0 14px,#e0d9c7 14px 28px);}
+.info{flex:1;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:14px;color:#8A8A80;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+.name{font-size:50px;font-weight:700;letter-spacing:-.035em;line-height:1;color:#121311;margin-bottom:12px;}
+.price{font-family:'JetBrains Mono',monospace;font-size:20px;color:#5B5C55;margin-bottom:24px;}
+.desc{font-size:17px;color:#5B5C55;line-height:1.5;margin-bottom:22px;max-width:400px;}
+.sizes{display:flex;gap:8px;margin-bottom:24px;}
+.sz{width:44px;height:40px;border:1px solid rgba(0,0,0,.18);background:#fff;font-family:'JetBrains Mono',monospace;font-size:14px;border-radius:5px;display:flex;align-items:center;justify-content:center;}
+.sz.active{background:#121311;color:#fff;}
+.btn-group{position:relative;display:inline-block;}
+.buy{padding:14px 30px;background:#121311;color:#F4EFE6;border:none;border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;}
+.overlay{position:absolute;inset:-6px;border:3px solid rgba(37,99,235,.95);background:rgba(37,99,235,.18);border-radius:11px;}
+.tooltip-box{position:absolute;top:calc(100% + 14px);left:0;white-space:nowrap;background:rgba(17,24,39,.96);color:#f9fafb;border:1px solid rgba(75,85,99,.95);border-radius:9px;padding:10px 16px;font-family:'JetBrains Mono',monospace;font-size:16px;}
+.alt-badge{position:absolute;right:-80px;top:44px;font-family:'JetBrains Mono',monospace;font-size:13px;background:#F4EFE6;border:1px solid rgba(18,19,17,.22);border-bottom-width:2px;padding:3px 7px;border-radius:4px;white-space:nowrap;}
+</style></head><body>
+<div class="left">
+  <div class="logo-row">
+    <img class="logo-img" src="../store-screenshots/HoverFrog.png"/>
+    <span class="logo-text">VibeFrog</span>
+  </div>
+  <div class="step">Inspect any element</div>
+  <h2>Hold Alt.<br/>Hover.<br/>See it.</h2>
+  <p>Hold <span class="kbd">Alt</span>, hover any element — its best selector appears in a tooltip before you even click.</p>
+  <div class="tip">
+    <span>Modifier key</span> — Alt (configurable)<br/>
+    <span>Works on</span> — any site, any element<br/>
+    <span>Data sent</span> — nowhere. Ever.
+  </div>
+</div>
+<div class="right">
+  <div class="browser">
+    <div class="chrome">
+      <div class="dots"><div class="dot" style="background:#ff6159"></div><div class="dot" style="background:#ffbf2f"></div><div class="dot" style="background:#2aca44"></div></div>
+      <div class="url-bar">shop.mosswear.co/p/lichen-hoodie</div>
+    </div>
+    <div class="page">
+      <div class="img-block"></div>
+      <div class="info">
+        <div class="tag">Apparel · SS26</div>
+        <div class="name">Lichen hoodie</div>
+        <div class="price">€129,00</div>
+        <div class="desc">Moss-dyed heavyweight cotton. Runs honest. Available XS–XXL.</div>
+        <div class="sizes">
+          <div class="sz">XS</div><div class="sz">S</div><div class="sz active">M</div><div class="sz">L</div><div class="sz">XL</div>
+        </div>
+        <div class="btn-group">
+          <button class="buy">Add to bag</button>
+          <div class="overlay"></div>
+          <div class="tooltip-box">[data-testid="buy-now"]</div>
+          <div style="position:absolute;right:-24px;top:12px;">
+            <svg width="26" height="30" viewBox="0 0 28 34" fill="none"><path d="M3 2 L3 26 L9 21 L13 30 L17 28 L13 19 L21 19 Z" fill="#fff" stroke="#121311" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <div class="alt-badge">Alt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

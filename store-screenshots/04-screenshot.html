@@ -1,0 +1,103 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;background:#121311;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;}
+.left{flex:0 0 740px;padding:80px 60px 80px 120px;display:flex;flex-direction:column;justify-content:center;gap:32px;}
+.logo-row{display:flex;align-items:center;gap:16px;}
+.logo-img{width:150px;height:150px;object-fit:contain;}
+.logo-text{font-size:30px;font-weight:700;letter-spacing:-.02em;color:#F4EFE6;}
+.step{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:oklch(72% 0.15 148);display:flex;align-items:center;gap:12px;}
+.step::before{content:'04';font-size:13px;background:oklch(42% 0.12 148);color:#fff;border-radius:4px;padding:3px 8px;}
+h2{font-size:118px;font-weight:700;letter-spacing:-.04em;line-height:.9;color:#F4EFE6;}
+p{font-size:24px;line-height:1.6;color:#B8B3A8;}
+.kbd{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:18px;background:#2a2b27;border:1px solid rgba(255,255,255,.2);border-bottom-width:2px;border-radius:5px;padding:4px 12px;color:#F4EFE6;}
+.tip{font-family:'JetBrains Mono',monospace;font-size:15px;color:#5B5C55;border-top:1px solid rgba(255,255,255,.08);padding-top:28px;line-height:2.1;}
+.tip span{color:#8A8A80;}
+.right{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 80px;gap:24px;}
+.browser{width:100%;max-width:560px;background:#fff;border-radius:16px;border:1px solid #000;box-shadow:0 40px 100px rgba(0,0,0,.6);overflow:hidden;}
+.chrome{display:flex;align-items:center;gap:10px;padding:16px 20px;background:#efebe2;border-bottom:1px solid #1c1d1a;}
+.dots{display:flex;gap:7px;}
+.dot{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.2);}
+.url-bar{flex:1;height:32px;background:#F4EFE6;border:1px solid rgba(18,19,17,.1);border-radius:7px;padding:0 14px;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:13px;color:#5B5C55;}
+.page{padding:40px;display:flex;flex-direction:column;gap:16px;position:relative;}
+.page-card{background:#f7f4ef;border-radius:12px;padding:24px;display:flex;gap:18px;position:relative;}
+.img-thumb{width:80px;height:98px;border-radius:8px;background:repeating-linear-gradient(135deg,#eee8dc 0 10px,#e0d9c7 10px 20px);flex-shrink:0;}
+.card-info{flex:1;}
+.card-name{font-size:20px;font-weight:700;color:#121311;letter-spacing:-.02em;margin-bottom:5px;}
+.card-price{font-family:'JetBrains Mono',monospace;font-size:14px;color:#5B5C55;}
+.card-btn{margin-top:12px;padding:9px 18px;background:#121311;color:#F4EFE6;border:none;border-radius:7px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;}
+.rc-overlay{position:absolute;inset:-3px;border:3px solid rgba(234,88,12,.9);background:rgba(234,88,12,.14);border-radius:14px;}
+.ctx-menu{position:absolute;top:40%;right:-210px;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.28);overflow:hidden;width:195px;}
+.ctx-item{padding:10px 16px;font-size:14px;color:#121311;display:flex;align-items:center;gap:10px;}
+.ctx-item.active{background:oklch(54% 0.13 148);color:#fff;font-weight:600;}
+.ctx-sep{height:1px;background:rgba(0,0,0,.08);margin:3px 0;}
+.arrow-area{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#5B5C55;}
+.arr{font-size:36px;color:oklch(55% 0.13 148);}
+.terminal{width:340px;background:#1c1d18;border-radius:14px;border:1px solid rgba(255,255,255,.1);overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.term-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;background:#2a2b27;border-bottom:1px solid rgba(255,255,255,.06);}
+.term-dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.3);}
+.term-body{padding:16px 18px;}
+.term-prompt{font-family:'JetBrains Mono',monospace;font-size:13px;color:#5B5C55;margin-bottom:10px;}
+.term-img{width:100%;height:120px;border-radius:7px;overflow:hidden;}
+.term-img-inner{width:100%;height:100%;background:repeating-linear-gradient(135deg,#2e2f29 0 8px,#262720 8px 16px);display:flex;align-items:center;justify-content:center;}
+.term-img-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:oklch(72% 0.15 148);letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.5);padding:5px 12px;border-radius:5px;}
+</style></head><body>
+<div class="left">
+  <div class="logo-row">
+    <img class="logo-img" src="../store-screenshots/HoverFrog.png"/>
+    <span class="logo-text">VibeFrog</span>
+  </div>
+  <div class="step">Screenshot mode</div>
+  <h2>Right-click.<br/>Screenshot.<br/>Pasted.</h2>
+  <p>Hold <span class="kbd">Alt</span> and right-click any element to capture a screenshot of just that component — straight to clipboard.</p>
+  <div class="tip">
+    <span>Left-click</span> — copies UI context text<br/>
+    <span>Right-click</span> — captures screenshot<br/>
+    <span>Modifier</span> — Alt / Ctrl / Shift
+  </div>
+</div>
+<div class="right">
+  <div class="browser">
+    <div class="chrome">
+      <div class="dots"><div class="dot" style="background:#ff6159"></div><div class="dot" style="background:#ffbf2f"></div><div class="dot" style="background:#2aca44"></div></div>
+      <div class="url-bar">shop.mosswear.co/p/lichen-hoodie</div>
+    </div>
+    <div class="page">
+      <div class="page-card" style="position:relative;">
+        <div class="img-thumb"></div>
+        <div class="card-info">
+          <div class="card-name">Lichen hoodie</div>
+          <div class="card-price">€129,00</div>
+          <button class="card-btn">Add to bag</button>
+        </div>
+        <div class="rc-overlay"></div>
+        <div class="ctx-menu">
+          <div class="ctx-item active">📷 Screenshot element</div>
+          <div class="ctx-sep"></div>
+          <div class="ctx-item" style="color:#777;">Copy selector</div>
+          <div class="ctx-item" style="color:#777;">Copy HTML</div>
+        </div>
+        <div style="position:absolute;right:148px;top:46px;">
+          <svg width="22" height="26" viewBox="0 0 28 34" fill="none"><path d="M3 2 L3 26 L9 21 L13 30 L17 28 L13 19 L21 19 Z" fill="#fff" stroke="#121311" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="arrow-area">
+    <div class="arr">→</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3a3b36;">clipboard</div>
+  </div>
+  <div class="terminal">
+    <div class="term-bar">
+      <div class="term-dot" style="background:#ff6159"></div>
+      <div class="term-dot" style="background:#ffbf2f"></div>
+      <div class="term-dot" style="background:#2aca44"></div>
+    </div>
+    <div class="term-body">
+      <div class="term-prompt">$ paste screenshot here ↓</div>
+      <div class="term-img"><div class="term-img-inner"><div class="term-img-label">screenshot · 1× PNG</div></div></div>
+    </div>
+  </div>
+</div>
+</body></html>

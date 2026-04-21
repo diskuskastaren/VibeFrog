@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:440px;height:280px;overflow:hidden;background:#F4EFE6;font-family:'Space Grotesk',sans-serif;display:flex;flex-direction:column;justify-content:space-between;padding:28px 32px;}
+
+.top{display:flex;align-items:center;justify-content:space-between;}
+.wordmark{font-size:15px;font-weight:700;letter-spacing:-.02em;color:#121311;}
+.free-badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#5B5C55;background:#EBE5D8;border:1px solid rgba(18,19,17,.15);border-bottom-width:2px;border-radius:4px;padding:2px 7px;}
+
+.mid{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;}
+h1{font-size:50px;font-weight:700;letter-spacing:-.045em;line-height:.86;color:#121311;}
+h1 em{color:oklch(42% 0.12 148);font-style:italic;font-weight:400;}
+.logo-hero{width:160px;object-fit:contain;flex-shrink:0;}
+
+.chip{display:inline-flex;align-items:center;gap:8px;background:#121311;border-radius:7px;padding:7px 12px;align-self:flex-start;}
+.chip-sel{font-family:'JetBrains Mono',monospace;font-size:10px;color:oklch(75% 0.13 148);}
+.chip-tag{font-family:'JetBrains Mono',monospace;font-size:9px;color:#4A4A44;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:3px;padding:1px 6px;}
+</style></head><body>
+
+<div class="top">
+  <span class="wordmark">VibeFrog</span>
+  <span class="free-badge">Free Chrome Extension</span>
+</div>
+
+<div class="mid">
+  <h1>Any<br/>element.<br/><em>One click.</em></h1>
+  <img class="logo-hero" src="./HoverFrog.png" alt="VibeFrog"/>
+</div>
+
+<div class="chip">
+  <span class="chip-sel">[data-testid="buy-now"]</span>
+  <span class="chip-tag">copied ✓</span>
+</div>
+
+</body></html>

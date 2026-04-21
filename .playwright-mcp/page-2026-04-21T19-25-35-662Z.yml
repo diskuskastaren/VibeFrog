@@ -1,0 +1,34 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: 01 Inspect any element
+    - heading "Hold Alt. Hover. See it." [level=2] [ref=e4]:
+      - text: Hold Alt.
+      - text: Hover.
+      - text: See it.
+    - paragraph [ref=e5]:
+      - text: The VibeFrog overlay activates the moment you hold
+      - generic [ref=e6]: Alt
+      - text: . Any element you hover shows its best selector in a tooltip — before you even click.
+    - generic [ref=e7]:
+      - text: Modifier key — Alt (configurable)
+      - text: Works on — any site, any element
+      - text: Data sent — nowhere. Ever.
+  - generic [ref=e9]:
+    - generic [ref=e15]: shop.mosswear.co/p/lichen-hoodie
+    - generic [ref=e18]:
+      - generic [ref=e19]: Apparel · SS26
+      - generic [ref=e20]: Lichen hoodie
+      - generic [ref=e21]: €129,00
+      - generic [ref=e22]: Moss-dyed heavyweight cotton. Runs honest. Available XS–XXL.
+      - generic [ref=e23]:
+        - generic [ref=e24]: XS
+        - generic [ref=e25]: S
+        - generic [ref=e26]: M
+        - generic [ref=e27]: L
+        - generic [ref=e28]: XL
+      - generic [ref=e29]:
+        - button "Add to bag" [ref=e30]
+        - generic [ref=e32]: "[data-testid=\"buy-now\"]"
+        - generic [ref=e33]:
+          - img [ref=e34]
+          - generic [ref=e36]: Alt

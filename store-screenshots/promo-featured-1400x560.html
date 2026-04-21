@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1400px;height:560px;overflow:hidden;background:#F4EFE6;font-family:'Space Grotesk',sans-serif;display:flex;align-items:stretch;}
+
+/* LEFT — text */
+.left{flex:0 0 620px;display:flex;flex-direction:column;justify-content:space-between;padding:52px 60px 52px 88px;}
+.logo-row{display:flex;align-items:center;gap:10px;}
+.wordmark{font-size:20px;font-weight:700;letter-spacing:-.02em;color:#121311;}
+.free-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#5B5C55;background:#EBE5D8;border:1px solid rgba(18,19,17,.15);border-bottom-width:2px;border-radius:5px;padding:3px 9px;}
+
+h1{font-size:88px;font-weight:700;letter-spacing:-.048em;line-height:.87;color:#121311;}
+h1 em{color:oklch(42% 0.12 148);font-style:italic;font-weight:400;}
+
+.sub{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8A8A80;letter-spacing:.02em;line-height:1.9;}
+.sub span{color:#5B5C55;}
+
+/* divider */
+.divider{width:1px;background:rgba(18,19,17,.1);flex-shrink:0;margin:40px 0;}
+
+/* RIGHT — logo hero */
+.right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:40px 60px;}
+.logo-hero{width:320px;object-fit:contain;}
+
+.chip{display:flex;align-items:center;justify-content:space-between;background:#121311;border-radius:9px;padding:11px 18px;width:100%;max-width:380px;}
+.chip-sel{font-family:'JetBrains Mono',monospace;font-size:13px;color:oklch(75% 0.13 148);}
+.chip-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:#4A4A44;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:2px 8px;}
+</style></head><body>
+
+<div class="left">
+  <div class="logo-row">
+    <span class="wordmark">VibeFrog</span>
+    <span class="free-badge">Free</span>
+  </div>
+
+  <h1>Any<br/>element.<br/><em>One click.</em></h1>
+
+  <div class="sub">
+    <span>Alt</span> + hover &nbsp;—&nbsp; inspect any element<br/>
+    <span>Click</span> &nbsp;—&nbsp; copy AI-ready selector &amp; HTML<br/>
+    <span>Right-click</span> &nbsp;—&nbsp; screenshot to clipboard
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="right">
+  <img class="logo-hero" src="./HoverFrog.png" alt="VibeFrog"/>
+  <div class="chip">
+    <span class="chip-sel">[data-testid="buy-now"]</span>
+    <span class="chip-tag">copied ✓</span>
+  </div>
+</div>
+
+</body></html>

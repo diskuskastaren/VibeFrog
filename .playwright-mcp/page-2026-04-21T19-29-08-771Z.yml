@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: 🐸
+      - generic [ref=e5]: VibeFrog
+      - generic [ref=e6]: free
+    - heading "Hover. Click. Copied." [level=1] [ref=e7]:
+      - text: Hover.
+      - text: Click.
+      - emphasis [ref=e8]: Copied.
+    - generic [ref=e9]:
+      - text: Alt + hover — inspect any element
+      - text: Click — copy AI-ready selector & HTML
+      - text: Right-click — screenshot to clipboard
+  - generic [ref=e11]:
+    - generic [ref=e17]: shop.mosswear.co/p/lichen-hoodie
+    - generic [ref=e20]:
+      - generic [ref=e21]: Apparel · SS26
+      - generic [ref=e22]: Lichen hoodie
+      - generic [ref=e23]: €129,00
+      - generic [ref=e24]:
+        - button "Add to bag" [ref=e25]
+        - generic [ref=e27]: "[data-testid=\"buy-now\"]"
+        - img [ref=e29]

@@ -1,0 +1,13 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]: VibeFrog
+    - generic [ref=e4]: Free Chrome Extension
+  - generic [ref=e5]:
+    - heading "Any element. One click." [level=1] [ref=e6]:
+      - text: Any
+      - text: element.
+      - emphasis [ref=e7]: One click.
+    - img "VibeFrog" [ref=e8]
+  - generic [ref=e9]:
+    - generic [ref=e10]: "[data-testid=\"buy-now\"]"
+    - generic [ref=e11]: copied ✓

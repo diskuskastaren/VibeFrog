@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;background:#F4EFE6;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;}
+.left{flex:0 0 780px;padding:80px 60px 80px 120px;display:flex;flex-direction:column;justify-content:center;gap:30px;}
+.logo-row{display:flex;align-items:center;gap:16px;}
+.logo-img{width:150px;height:150px;object-fit:contain;}
+.logo-text{font-size:30px;font-weight:700;letter-spacing:-.02em;color:#121311;}
+.step{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#5B5C55;display:flex;align-items:center;gap:12px;}
+.step::before{content:'03';font-size:13px;background:#121311;color:#F4EFE6;border-radius:4px;padding:3px 8px;}
+h2{font-size:106px;font-weight:700;letter-spacing:-.04em;line-height:.9;color:#121311;}
+h2 span{color:oklch(42% 0.12 148);font-weight:400;font-style:italic;}
+p{font-size:23px;line-height:1.6;color:#5B5C55;max-width:540px;}
+.features{display:flex;flex-direction:column;gap:12px;font-family:'JetBrains Mono',monospace;font-size:15px;color:#5B5C55;border-top:1px solid rgba(0,0,0,.1);padding-top:28px;}
+.features div{display:flex;align-items:center;gap:12px;}
+.features .dot{width:7px;height:7px;border-radius:50%;background:oklch(54% 0.13 148);flex-shrink:0;}
+.right{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 80px;}
+.code-panel{width:100%;background:#161712;border-radius:18px;border:1px solid #000;box-shadow:0 40px 100px rgba(0,0,0,.4);overflow:hidden;}
+.panel-header{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,.08);background:#1c1d18;}
+.panel-title{font-family:'JetBrains Mono',monospace;font-size:13px;color:oklch(75% 0.13 148);letter-spacing:.08em;text-transform:uppercase;}
+.panel-badge{font-family:'JetBrains Mono',monospace;font-size:13px;color:#7A7A70;border:1px solid rgba(255,255,255,.1);padding:3px 10px;border-radius:5px;}
+.tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.08);}
+.tab{font-family:'JetBrains Mono',monospace;font-size:14px;padding:12px 24px;color:#7A7A70;letter-spacing:.04em;border-right:1px solid rgba(255,255,255,.06);}
+.tab.active{color:#D6D2C6;background:rgba(255,255,255,.04);border-bottom:2px solid oklch(60% 0.13 148);margin-bottom:-1px;}
+pre{margin:0;padding:28px 32px;font-family:'JetBrains Mono',monospace;font-size:16px;line-height:1.75;color:#D6D2C6;white-space:pre-wrap;word-break:break-word;}
+.c-comment{color:#5B6152;}
+.c-key{color:#7DD3A0;}
+.c-val{color:#E6C985;}
+.c-selector{color:#82CFEA;}
+.c-str{color:#CE9178;}
+.copied-badge{display:inline-flex;align-items:center;gap:8px;background:oklch(30% 0.09 148);border:1px solid oklch(45% 0.12 148);border-radius:7px;padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:14px;color:oklch(78% 0.14 148);margin-top:4px;}
+.copied-badge::before{content:'✓';font-weight:700;}
+</style></head><body>
+<div class="left">
+  <div class="logo-row">
+    <img class="logo-img" src="../store-screenshots/HoverFrog.png"/>
+    <span class="logo-text">VibeFrog</span>
+  </div>
+  <div class="step">What gets copied</div>
+  <h2>Paste-ready.<br/><span>Shaped for</span><br/>AI.</h2>
+  <p>Every click produces a structured snapshot — selectors ranked by stability, clean HTML, visible text.</p>
+  <div class="features">
+    <div><span class="dot"></span>test IDs first, then stable id, then ARIA</div>
+    <div><span class="dot"></span>generated class names (css-1a2b3c…) filtered out</div>
+    <div><span class="dot"></span>CSS Only mode: computed styles, paste-ready</div>
+  </div>
+</div>
+<div class="right">
+  <div class="code-panel">
+    <div class="panel-header">
+      <span class="panel-title">UI Component</span>
+      <span class="panel-badge">clipboard ✓</span>
+    </div>
+    <div class="tabs">
+      <div class="tab active">UI Component</div>
+      <div class="tab">CSS Only</div>
+    </div>
+    <pre><span class="c-comment">// Target UI element:</span>
+<span class="c-key">url:</span>          <span class="c-val">shop.mosswear.co/p/lichen-hoodie</span>
+<span class="c-key">text:</span>         <span class="c-str">"Add to bag"</span>
+<span class="c-key">best selector:</span> <span class="c-selector">[data-testid="buy-now"]</span>
+<span class="c-key">fallback:</span>     <span class="c-selector">#buy-btn</span>, <span class="c-selector">button[aria-label="Add to bag"]</span>
+<span class="c-key">html:</span>
+<span class="c-str">&lt;button data-testid="buy-now" class="btn-primary"
+        aria-label="Add to bag"&gt;Add to bag&lt;/button&gt;</span></pre>
+    <div style="padding:0 32px 24px;"><div class="copied-badge">Copied to clipboard</div></div>
+  </div>
+</div>
+</body></html>

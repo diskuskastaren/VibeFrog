@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e7]:
+        - img [ref=e8]
+        - generic [ref=e9]: VibeFrog
+      - generic [ref=e13]:
+        - generic [ref=e14]: Modifier key
+        - generic [ref=e15]: Alt ▾
+      - generic [ref=e16]:
+        - generic [ref=e17]: Copy format
+        - generic [ref=e18]: UI Component ▾
+      - generic [ref=e20]: Screenshot on right-click
+      - generic [ref=e23]:
+        - text: Hold Alt to inspect
+        - text: Alt + Click to copy
+        - text: Alt + Right-click to screenshot
+    - generic [ref=e24]: ↑ the whole settings surface
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - img [ref=e27]
+      - generic [ref=e28]:
+        - generic [ref=e29]: VibeFrog
+        - generic [ref=e30]: free
+    - heading "Add to Chrome. Done." [level=1] [ref=e31]:
+      - text: Add to
+      - text: Chrome.
+      - text: Done.
+    - paragraph [ref=e32]:
+      - text: Two clicks. Hold
+      - generic [ref=e33]: Alt
+      - text: . Start capturing.
+      - text: The whole config is one modifier key.
+    - generic [ref=e34]:
+      - img [ref=e35]
+      - text: Add to Chrome — it's free
+    - generic [ref=e38]:
+      - generic [ref=e39]: Zero setup
+      - generic [ref=e40]: Works on any site
+      - generic [ref=e41]: Nothing leaves your browser
+      - generic [ref=e42]: Manifest V3

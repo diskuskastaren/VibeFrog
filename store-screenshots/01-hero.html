@@ -1,0 +1,74 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;background:#F4EFE6;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;}
+.left{flex:0 0 860px;padding:80px 80px 80px 120px;display:flex;flex-direction:column;justify-content:center;gap:36px;}
+.logo-row{display:flex;align-items:center;gap:20px;}
+.logo-img{width:180px;height:180px;object-fit:contain;}
+.logo-text{font-size:36px;font-weight:700;letter-spacing:-.02em;color:#121311;}
+.logo-free{font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:#5B5C55;background:#EBE5D8;border:1px solid rgba(18,19,17,.2);border-bottom-width:2px;border-radius:5px;padding:4px 10px;}
+.badge{font-family:'JetBrains Mono',monospace;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:#5B5C55;display:inline-flex;align-items:center;gap:12px;}
+.badge-dot{width:10px;height:10px;border-radius:50%;background:oklch(54% 0.13 148);}
+h1{font-size:148px;font-weight:700;letter-spacing:-.05em;line-height:.87;color:#121311;}
+h1 span{color:oklch(42% 0.12 148);font-weight:400;}
+p{font-size:28px;line-height:1.5;color:#5B5C55;max-width:600px;}
+.kbd{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:18px;background:#EBE5D8;border:1px solid rgba(18,19,17,.2);border-bottom-width:2px;border-radius:5px;padding:4px 12px;color:#121311;}
+.pills{display:flex;gap:14px;flex-wrap:wrap;}
+.pill{font-family:'JetBrains Mono',monospace;font-size:16px;border-radius:999px;padding:10px 22px;letter-spacing:.04em;}
+.pill.green{background:oklch(42% 0.12 148);color:#F4EFE6;}
+.pill.dark{background:#121311;color:#F4EFE6;}
+.right{flex:1;display:flex;align-items:center;justify-content:center;padding:60px;}
+.browser{width:100%;background:#fff;border-radius:16px;border:1px solid #1c1d1a;box-shadow:0 40px 80px -30px rgba(0,0,0,.45);overflow:hidden;}
+.chrome{display:flex;align-items:center;gap:12px;padding:18px 24px;background:#efebe2;border-bottom:1px solid #1c1d1a;}
+.dots{display:flex;gap:8px;}
+.dot{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.2);}
+.url-bar{flex:1;height:36px;background:#F4EFE6;border:1px solid rgba(18,19,17,.1);border-radius:8px;padding:0 16px;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-size:16px;color:#5B5C55;}
+.page{padding:60px;display:flex;gap:56px;}
+.img-block{width:300px;height:370px;border-radius:12px;background:repeating-linear-gradient(135deg,#eee8dc 0 16px,#e0d9c7 16px 32px);flex-shrink:0;display:flex;align-items:flex-end;padding:14px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#8a8076;letter-spacing:.06em;text-transform:uppercase;}
+.info{flex:1;padding-top:8px;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:15px;color:#8A8A80;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;}
+.name{font-size:58px;font-weight:700;letter-spacing:-.035em;line-height:1;color:#121311;margin-bottom:14px;}
+.price{font-family:'JetBrains Mono',monospace;font-size:22px;color:#5B5C55;margin-bottom:28px;}
+.btn-wrap{position:relative;display:inline-block;}
+.buy-btn{padding:16px 36px;background:#121311;color:#F4EFE6;border:none;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;cursor:pointer;}
+.overlay{position:absolute;inset:-6px;border:3px solid rgba(72,191,83,.95);background:rgba(72,191,83,.22);border-radius:12px;}
+.tooltip{position:absolute;bottom:calc(100% + 16px);left:0;white-space:nowrap;background:rgba(16,60,20,.96);color:#f0fdf1;border:1px solid rgba(72,191,83,.8);border-radius:9px;padding:10px 18px;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:600;}
+</style></head><body>
+<div class="left">
+  <div class="logo-row">
+    <img class="logo-img" src="../assets/vibefrog-logo.png"/>
+    <span class="logo-text">VibeFrog</span>
+    <span class="logo-free">free</span>
+  </div>
+  <div class="badge"><span class="badge-dot"></span>Chrome Extension · Local-only</div>
+  <h1>Point.<br/>Capture.<br/><span>Paste.</span></h1>
+  <p>Hold <span class="kbd">Alt</span>, hover any element, click to copy an AI-ready snapshot. Right-click for a screenshot.</p>
+  <div class="pills">
+    <div class="pill green">Zero setup</div>
+    <div class="pill dark">Works on any site</div>
+    <div class="pill dark">Nothing leaves your browser</div>
+  </div>
+</div>
+<div class="right">
+  <div class="browser">
+    <div class="chrome">
+      <div class="dots"><div class="dot" style="background:#ff6159"></div><div class="dot" style="background:#ffbf2f"></div><div class="dot" style="background:#2aca44"></div></div>
+      <div class="url-bar">shop.mosswear.co/p/lichen-hoodie</div>
+    </div>
+    <div class="page">
+      <div class="img-block">product · 01 of 04</div>
+      <div class="info">
+        <div class="tag">Apparel · SS26</div>
+        <div class="name">Lichen<br/>hoodie</div>
+        <div class="price">€129,00</div>
+        <div class="btn-wrap">
+          <button class="buy-btn">Add to bag</button>
+          <div class="overlay"></div>
+          <div class="tooltip">✓ Copied</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

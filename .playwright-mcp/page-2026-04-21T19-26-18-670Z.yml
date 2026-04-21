@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e7]:
+        - generic [ref=e8]: 🐸
+        - generic [ref=e9]: VibeFrog
+      - generic [ref=e13]:
+        - generic [ref=e14]: Modifier key
+        - generic [ref=e15]: Alt ▾
+      - generic [ref=e16]:
+        - generic [ref=e17]: Copy format
+        - generic [ref=e18]: UI Component ▾
+      - generic [ref=e20]: Screenshot on right-click
+      - generic [ref=e23]:
+        - text: Hold Alt to inspect
+        - text: Alt + Click to copy
+        - text: Alt + Right-click to screenshot
+    - generic [ref=e24]: ↑ the whole settings surface
+  - generic [ref=e25]:
+    - generic [ref=e26]: Free Chrome Extension · Zero setup
+    - heading "Add to Chrome. Done." [level=1] [ref=e28]:
+      - text: Add to
+      - text: Chrome.
+      - text: Done.
+    - paragraph [ref=e29]:
+      - text: Two clicks. Hold
+      - generic [ref=e30]: Alt
+      - text: . Start capturing. The whole config is one modifier key and a copy format toggle.
+    - generic [ref=e32]:
+      - img [ref=e33]
+      - text: Add to Chrome — it's free
+    - generic [ref=e36]:
+      - generic [ref=e37]: Zero setup
+      - generic [ref=e38]: Works on any site
+      - generic [ref=e39]: Nothing leaves your browser
+      - generic [ref=e40]: Manifest V3

@@ -1,0 +1,18 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]: VibeFrog
+      - generic [ref=e5]: Free
+    - heading "Any element. One click." [level=1] [ref=e6]:
+      - text: Any
+      - text: element.
+      - emphasis [ref=e7]: One click.
+    - generic [ref=e8]:
+      - text: Alt + hover — inspect any element
+      - text: Click — copy AI-ready selector & HTML
+      - text: Right-click — screenshot to clipboard
+  - generic [ref=e10]:
+    - img "VibeFrog" [ref=e11]
+    - generic [ref=e12]:
+      - generic [ref=e13]: "[data-testid=\"buy-now\"]"
+      - generic [ref=e14]: copied ✓
