@@ -27,6 +27,10 @@ const FAQ_ITEMS = [
     q: 'How is this different from manually describing the UI to an AI?',
     a: 'Manual descriptions are slower and often vague. VibeFrog helps you capture the exact target directly from the page, which makes prompts faster and more precise.',
   },
+  {
+    q: 'What is the difference between UI Component and CSS Only?',
+    a: 'UI Component (the default) copies the element\'s selector, HTML structure, and visible text — ideal when you want AI to understand what the element is and help you modify it. CSS Only copies the element\'s computed styles, organized by category — ideal when you want to steal a look and apply it elsewhere.',
+  },
 ];
 
 function FaqItem({ q, a, open, onToggle }) {

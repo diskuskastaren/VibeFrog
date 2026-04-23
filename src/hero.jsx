@@ -3,6 +3,36 @@
 // Right: a live "snapshot" showing terminal + browser + a highlighted DOM element
 // with a real overlay/tooltip, styled like the extension.
 
+function ToolCycler() {
+  const tools = [
+    { name: 'Claude Code', icon: 'assets/claude-color.svg' },
+    { name: 'Codex',       icon: 'assets/codex-color%20(1).svg' },
+    { name: 'Gemini',      icon: 'assets/gemini-color.svg' },
+    { name: 'Kimi Code',   icon: 'assets/kimi-color.svg' },
+  ];
+  const [idx, setIdx] = React.useState(0);
+  const [visible, setVisible] = React.useState(true);
+
+  React.useEffect(() => {
+    const t = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => { setIdx(i => (i + 1) % tools.length); setVisible(true); }, 260);
+    }, 2200);
+    return () => clearInterval(t);
+  }, []);
+
+  const tool = tools[idx];
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: 7,
+      opacity: visible ? 1 : 0, transition: 'opacity 260ms ease',
+      fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)',
+    }}>
+      {tool.icon && <img src={tool.icon} width={36} height={36} style={{ display: 'block', opacity: 0.65 }} />}
+    </span>
+  );
+}
+
 function Hero() {
   return (
     <section id="top" style={{ paddingTop: 80, paddingBottom: 60 }}>
@@ -24,8 +54,9 @@ function Hero() {
               <span style={{
                 fontWeight: 400,
                 color: 'var(--frog-deep)',
+                fontStyle: 'italic',
               }}>
-                Ship faster.
+                Prompt smarter.
               </span>
             </h1>
 
@@ -41,6 +72,14 @@ function Hero() {
               Right-click does the same for screenshots, so you can grab structure
               or visuals in seconds.
             </p>
+
+            <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
+              <span style={{
+                fontFamily: 'var(--mono)', fontSize: 12, letterSpacing: '0.08em',
+                textTransform: 'uppercase', color: 'var(--ink-4)',
+              }}>Optimized for</span>
+              <ToolCycler />
+            </div>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
               <Button variant="primary" href="#install">
@@ -86,15 +125,15 @@ function Hero() {
           </div>
           <div className="stat">
             <div className="stat-v">Free</div>
-            <div className="stat-k">Until it isn't</div>
+            <div className="stat-k">Always</div>
           </div>
           <div className="stat">
             <div className="stat-v">100%</div>
             <div className="stat-k">Local — nothing leaves the tab</div>
           </div>
           <div className="stat">
-            <div className="stat-v">0 ms</div>
-            <div className="stat-k">Boot time — it's a content script</div>
+            <div className="stat-v">No login</div>
+            <div className="stat-k">No account, no tracking</div>
           </div>
         </div>
       </div>

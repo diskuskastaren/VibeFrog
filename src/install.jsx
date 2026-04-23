@@ -188,9 +188,9 @@ html:
             Paste-ready payloads, shaped for language models.
           </h2>
           <p style={{ marginTop: 20, maxWidth: 640, fontSize: 17, color: 'var(--ink-2)' }}>
-            Selectors are ranked: test IDs first, then stable <span style={{ fontFamily: 'var(--mono)' }}>id</span>, then ARIA,
-            then role, then a short structural fallback. Generated class names
-            (<span style={{ fontFamily: 'var(--mono)' }}>css-1a2b3c…</span>) are filtered out.
+            The output is optimized for AI coding tools.
+            Stable, semantic selectors are prioritized and generated class names
+            (<span style={{ fontFamily: 'var(--mono)' }}>css-1a2b3c…</span>) are stripped — so what you paste is actually useful.
           </p>
         </div>
 
@@ -201,45 +201,6 @@ html:
         }} className="payload-grid">
           <CodeCard title="UI Component" subtitle="default — selector, html and visible text" code={full}/>
           <CodeCard title="CSS Only" subtitle="steal styles — paste-ready computed CSS" code={cssOnly}/>
-        </div>
-
-        {/* Selector ranking visualization */}
-        <div style={{ marginTop: 40 }}>
-          <div style={{
-            fontFamily: 'var(--mono)', fontSize: 12, letterSpacing: '0.1em',
-            textTransform: 'uppercase', color: 'var(--ink-3)', marginBottom: 14,
-          }}>
-            selector priority
-          </div>
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-            {[
-              ['data-testid', 'Highest — authored for tests'],
-              ['stable id',   'Non-numeric, no colons'],
-              ['aria-label',  'Screen-reader-first'],
-              ['role + text', 'Semantic fallback'],
-              ['short css',   'Last resort, depth ≤ 4'],
-            ].map(([k, desc], i) => (
-              <div key={k} style={{
-                flex: '1 1 180px',
-                background: 'var(--paper)',
-                border: '1px solid var(--hair)',
-                borderRadius: 10,
-                padding: '14px 16px',
-                position: 'relative',
-              }}>
-                <div style={{
-                  position: 'absolute', top: 10, right: 12,
-                  fontFamily: 'var(--mono)', fontSize: 11, color: 'var(--ink-4)',
-                }}>0{i+1}</div>
-                <div style={{ fontFamily: 'var(--mono)', fontWeight: 500, fontSize: 14, color: 'var(--ink)' }}>
-                  {k}
-                </div>
-                <div style={{ fontSize: 12, color: 'var(--ink-3)', marginTop: 4 }}>
-                  {desc}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

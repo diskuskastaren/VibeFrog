@@ -21,7 +21,7 @@ function VideoDemo() {
             </h2>
           </div>
           <p style={{ maxWidth: 380, color: 'var(--ink-2)', fontSize: 16 }}>
-            Ask an agent to change something — it wants DOM for selectors,
+            Ask an agent to change something — it wants element context for selectors,
             or a pixel-perfect crop for visual bugs. Capture. Paste. Fix.
           </p>
         </div>

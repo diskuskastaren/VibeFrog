@@ -5,14 +5,16 @@ function TopBar() {
     <div className="topbar">
       <div className="wrap topbar-inner">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
           <FrogMark size={56}/>
           <span style={{
             fontFamily: 'var(--sans)',
             fontWeight: 700,
-            fontSize: 28,
+            fontSize: 22,
             letterSpacing: '-0.02em',
             color: 'var(--ink)',
           }}>VibeFrog</span>
+          </a>
           <span style={{
             marginLeft: 10,
             padding: '2px 8px',
