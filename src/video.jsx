@@ -17,7 +17,7 @@ function VideoDemo() {
           <div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>01 · how it works</div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', maxWidth: 640 }}>
-              The loop, in twenty seconds.
+              The workflow, in twenty seconds.
             </h2>
           </div>
           <p style={{ maxWidth: 380, color: 'var(--ink-2)', fontSize: 16 }}>

@@ -13,9 +13,9 @@ function InstallSection() {
           <div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>05 · install</div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)' }}>
-              Two clicks,<br/>
+              Install VibeFrog.<br/>
               <span style={{ fontStyle: 'italic', fontWeight: 400, color: 'var(--frog-deep)' }}>
-                one modifier key.
+                Point, capture, paste.
               </span>
             </h2>
             <p style={{ marginTop: 24, fontSize: 17, color: 'var(--ink-2)', maxWidth: 480 }}>
@@ -185,12 +185,10 @@ html:
         <div style={{ marginBottom: 40 }}>
           <div className="eyebrow" style={{ marginBottom: 20 }}>03 · what gets copied</div>
           <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', maxWidth: 840 }}>
-            Paste-ready payloads, shaped for language models.
+            Copy the context your coding agent needs.
           </h2>
           <p style={{ marginTop: 20, maxWidth: 640, fontSize: 17, color: 'var(--ink-2)' }}>
-            The output is optimized for AI coding tools.
-            Stable, semantic selectors are prioritized and generated class names
-            (<span style={{ fontFamily: 'var(--mono)' }}>css-1a2b3c…</span>) are stripped — so what you paste is actually useful.
+            VibeFrog packages the selected element into a clean prompt-ready payload: selector, text, HTML, visual styles, and page context.
           </p>
         </div>
 
@@ -293,7 +291,7 @@ function Footer() {
           }}>
             <a href="#top" style={{ textDecoration: 'none', color: 'inherit' }}>top</a>
             <a href="#how-it-works" style={{ textDecoration: 'none', color: 'inherit' }}>how it works</a>
-            <a href="#sandbox" style={{ textDecoration: 'none', color: 'inherit' }}>sandbox</a>
+            <a href="#sandbox" style={{ textDecoration: 'none', color: 'inherit' }}>try it</a>
             <a href="#payload" style={{ textDecoration: 'none', color: 'inherit' }}>payload</a>
             <a href="#faq" style={{ textDecoration: 'none', color: 'inherit' }}>faq</a>
             <a href="#install" style={{ textDecoration: 'none', color: 'inherit' }}>install</a>

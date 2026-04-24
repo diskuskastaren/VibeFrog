@@ -30,7 +30,7 @@ function TopBar() {
         </div>
         <nav>
           <a href="#how-it-works">HOW IT WORKS</a>
-          <a href="#sandbox">Sandbox</a>
+          <a href="#sandbox">Try it</a>
           <a href="#payload">Payload</a>
           <a href="#faq">FAQ</a>
           <a href="#install">Install</a>
