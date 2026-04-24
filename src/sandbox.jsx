@@ -12,6 +12,16 @@ function Sandbox() {
   const [copied, setCopied] = useState(null); // {payload, selector, at}
   const [format, setFormat] = useState('text'); // text | css
   const [lastMouse, setLastMouse] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+  const [tapMode, setTapMode] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) setAltDown(tapMode);
+  }, [tapMode, isMobile]);
 
   // Keyboard listeners
   useEffect(() => {
@@ -105,6 +115,27 @@ function Sandbox() {
     };
   }, [altDown, format]);
 
+  // Touch listener for mobile tap-mode
+  useEffect(() => {
+    if (!isMobile) return;
+    const stage = stageRef.current;
+    if (!stage) return;
+    const onTouch = (e) => {
+      if (!tapMode) return;
+      e.preventDefault();
+      const t = e.changedTouches[0];
+      const el = document.elementFromPoint(t.clientX, t.clientY);
+      const inspectable = el?.closest('[data-sbx]');
+      if (!inspectable) return;
+      const payload = buildPayload(inspectable, format);
+      navigator.clipboard.writeText(payload).catch(() => {});
+      setCopied({ payload, selector: bestSelector(inspectable), at: Date.now() });
+      setHovered(null);
+    };
+    stage.addEventListener('touchend', onTouch, { passive: false });
+    return () => stage.removeEventListener('touchend', onTouch);
+  }, [isMobile, tapMode, format]);
+
   // Compute overlay rect (in page coords, relative to stage)
   const overlayRect = (() => {
     if (!altDown || !hovered || !stageRef.current) return null;
@@ -134,13 +165,15 @@ function Sandbox() {
               <span style={{ color: '#8A8A80' }}>02 · live sandbox</span>
             </div>
             <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', color: 'var(--paper)', maxWidth: 780 }}>
-              Don't install yet. Hold <Kbd dark>Alt</Kbd> and try it out below.
+              {isMobile
+                ? <>Tap any element<br/><span style={{ fontWeight: 400, color: 'oklch(72% 0.15 148)', fontStyle: 'italic' }}>to copy its context.</span></>
+                : <>Don't install yet. Hold <Kbd dark>Alt</Kbd> and try it out below.</>}
             </h2>
           </div>
           <p style={{ maxWidth: 360, color: '#B8B3A8', fontSize: 16 }}>
-            This is the real thing — same selector logic, same overlay,
-            same clipboard payload — running in-page.
-            Hold <Kbd dark>Alt</Kbd>, hover anything below, click to copy.
+            {isMobile
+              ? 'Tap "Tap to inspect", then tap any element in the demo below. Same payload, same clipboard — no install needed.'
+              : <>This is the real thing — same selector logic, same overlay, same clipboard payload — running in-page. Hold <Kbd dark>Alt</Kbd>, hover anything below, click to copy.</>}
           </p>
         </div>
 
@@ -156,17 +189,27 @@ function Sandbox() {
           color: '#D6D2C6',
           flexWrap: 'wrap',
         }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-          }}>
-            <span style={{
-              width: 8, height: 8, borderRadius: '50%',
-              background: altDown ? 'oklch(72% 0.15 148)' : '#444',
-              boxShadow: altDown ? '0 0 10px oklch(72% 0.15 148)' : 'none',
-              transition: 'all 120ms',
-            }}/>
-            {altDown ? 'Alt is down — move to inspect' : 'Hold Alt to inspect'}
-          </span>
+          {isMobile ? (
+            <button onClick={() => setTapMode(t => !t)} style={{
+              background: tapMode ? 'oklch(72% 0.15 148)' : 'rgba(255,255,255,0.08)',
+              color: tapMode ? '#000' : '#D6D2C6',
+              border: 'none', borderRadius: 6, padding: '5px 12px',
+              fontFamily: 'var(--mono)', fontSize: 12, cursor: 'pointer',
+              transition: 'all 160ms', fontWeight: tapMode ? 600 : 400,
+            }}>
+              {tapMode ? '✓ Tap mode active — tap any element' : 'Tap to inspect'}
+            </button>
+          ) : (
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+              <span style={{
+                width: 8, height: 8, borderRadius: '50%',
+                background: altDown ? 'oklch(72% 0.15 148)' : '#444',
+                boxShadow: altDown ? '0 0 10px oklch(72% 0.15 148)' : 'none',
+                transition: 'all 120ms',
+              }}/>
+              {altDown ? 'Alt is down — move to inspect' : 'Hold Alt to inspect'}
+            </span>
+          )}
           <span style={{ color: '#5B5C55' }}>|</span>
           {/* Left-click group */}
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7 }}>
@@ -192,16 +235,16 @@ function Sandbox() {
               ))}
             </div>
           </span>
-          <span style={{ color: '#5B5C55' }}>|</span>
-          {/* Right-click group */}
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'oklch(72% 0.15 148)' }}>
+          {!isMobile && <span style={{ color: '#5B5C55' }}>|</span>}
+          {/* Right-click group — desktop only */}
+          {!isMobile && <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, color: 'oklch(72% 0.15 148)' }}>
             <svg width="14" height="20" viewBox="0 0 14 20" fill="none" style={{ flexShrink: 0 }}>
               <rect x="0.75" y="0.75" width="12.5" height="18.5" rx="6.25" stroke="oklch(52% 0.12 148)" strokeWidth="1.5"/>
               <line x1="7" y1="0.75" x2="7" y2="8" stroke="oklch(52% 0.12 148)" strokeWidth="1.5"/>
               <path d="M13 7.5 Q13 1 7 1 L7 8 L13 8 Z" fill="oklch(72% 0.15 148 / 0.45)" clipPath="inset(0 0 0 0 round 0 6px 0 0)"/>
             </svg>
             <span style={{ fontSize: 12 }}>Screenshot</span>
-          </span>
+          </span>}
           <span style={{ marginLeft: 'auto', color: '#8A8A80', fontSize: 12 }}>
             {copied
               ? <span style={{ color: 'oklch(80% 0.14 148)' }}>✓ Copied to clipboard · {copied.selector}</span>

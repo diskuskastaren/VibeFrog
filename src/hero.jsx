@@ -111,7 +111,9 @@ function Hero() {
           </div>
 
           {/* ── RIGHT column: static vignette ───────── */}
-          <HeroVignette />
+          <div className="hero-vignette">
+            <HeroVignette />
+          </div>
         </div>
       </div>
 
@@ -361,6 +363,7 @@ function HeroVignette() {
 
         @media (max-width: 900px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .hero-vignette { display: none; }
         }
       `}</style>
     </div>

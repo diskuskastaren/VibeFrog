@@ -1,6 +1,8 @@
 // app.jsx — root component + mount
 
 function TopBar() {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const close = () => setMenuOpen(false);
   return (
     <div className="topbar">
       <div className="wrap topbar-inner">
@@ -35,10 +37,26 @@ function TopBar() {
           <a href="#faq">FAQ</a>
           <a href="#install">Install</a>
         </nav>
-        <Button variant="primary" href="#install" style={{ padding: '8px 14px', fontSize: 13 }}>
+        <Button variant="primary" href="#install" style={{ padding: '8px 14px', fontSize: 13 }} className="topbar-cta">
           Add to Chrome
         </Button>
+        {/* Hamburger — mobile only */}
+        <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
+          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--ink)', borderRadius: 2, transition: 'all 200ms', transform: menuOpen ? 'rotate(45deg) translate(3px, 3px)' : 'none' }}/>
+          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--ink)', borderRadius: 2, transition: 'all 200ms', opacity: menuOpen ? 0 : 1 }}/>
+          <span style={{ display: 'block', width: 22, height: 2, background: 'var(--ink)', borderRadius: 2, transition: 'all 200ms', transform: menuOpen ? 'rotate(-45deg) translate(3px, -3px)' : 'none' }}/>
+        </button>
       </div>
+      {/* Mobile drawer */}
+      {menuOpen && (
+        <div className="mobile-menu">
+          <a href="#how-it-works" onClick={close}>How it works</a>
+          <a href="#sandbox" onClick={close}>Try it</a>
+          <a href="#payload" onClick={close}>Payload</a>
+          <a href="#faq" onClick={close}>FAQ</a>
+          <a href="#install" onClick={close} style={{ color: 'var(--frog-deep)', fontWeight: 600 }}>Install →</a>
+        </div>
+      )}
     </div>
   );
 }
