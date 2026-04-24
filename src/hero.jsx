@@ -25,10 +25,12 @@ function ToolCycler() {
   return (
     <span style={{
       display: 'inline-flex', alignItems: 'center', gap: 7,
-      opacity: visible ? 1 : 0, transition: 'opacity 260ms ease',
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'scale(1)' : 'scale(0.72)',
+      transition: 'opacity 260ms ease, transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1)',
       fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)',
     }}>
-      {tool.icon && <img src={tool.icon} width={36} height={36} style={{ display: 'block', opacity: 0.65 }} />}
+      {tool.icon && <img src={tool.icon} width={36} height={36} style={{ display: 'block', opacity: 0.85 }} />}
     </span>
   );
 }
@@ -48,7 +50,7 @@ function Hero() {
           <div>
             <h1 className="display" style={{ fontSize: 'clamp(34px, 4.8vw, 64px)' }}>
               <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
-                Point, capture, paste.
+                Stop describing UI.
               </span>
               <br/>
               <span style={{
@@ -56,7 +58,7 @@ function Hero() {
                 color: 'var(--frog-deep)',
                 fontStyle: 'italic',
               }}>
-                Prompt smarter.
+                Point at it.
               </span>
             </h1>
 
@@ -67,10 +69,7 @@ function Hero() {
               maxWidth: 520,
               color: 'var(--ink-2)',
             }}>
-              VibeFrog lets you hold <Kbd>Alt</Kbd>, hover any element on any page,
-              and click to instantly copy an AI-ready snapshot to your clipboard.
-              Right-click does the same for screenshots, so you can grab structure
-              or visuals in seconds.
+              VibeFrog lets you hold <Kbd>Alt</Kbd>, hover any element, and click to copy an AI-ready snapshot with structure, styling, and page context. Right-click to capture a screenshot instead - giving coding agents the exact UI context they need in seconds.
             </p>
 
             <div style={{ marginTop: 20, display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -106,7 +105,7 @@ function Hero() {
               flexWrap: 'wrap',
             }}>
               <span><Kbd>Alt</Kbd> <span style={{ opacity: 0.6 }}>hover</span></span>
-              <span><Kbd>Alt</Kbd>+click <span style={{ opacity: 0.6 }}>copy dom</span></span>
+              <span><Kbd>Alt</Kbd>+click <span style={{ opacity: 0.6 }}>copy context</span></span>
               <span><Kbd>Alt</Kbd>+right-click <span style={{ opacity: 0.6 }}>screenshot</span></span>
             </div>
           </div>
@@ -120,20 +119,20 @@ function Hero() {
       <div className="wrap" style={{ marginTop: 100 }}>
         <div className="stats">
           <div className="stat">
-            <div className="stat-v">Chrome</div>
-            <div className="stat-k">Works in most Chromium-based browsers</div>
+            <div className="stat-v">Chrome extension</div>
+            <div className="stat-k">Works in Chromium-based browsers</div>
           </div>
           <div className="stat">
-            <div className="stat-v">Free</div>
-            <div className="stat-k">Always</div>
+            <div className="stat-v">Free to use</div>
+            <div className="stat-k">No hidden costs</div>
           </div>
           <div className="stat">
-            <div className="stat-v">100%</div>
+            <div className="stat-v">Runs locally</div>
             <div className="stat-k">Local — nothing leaves the tab</div>
           </div>
           <div className="stat">
             <div className="stat-v">No login</div>
-            <div className="stat-k">No account, no tracking</div>
+            <div className="stat-k">No account needed</div>
           </div>
         </div>
       </div>

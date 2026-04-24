@@ -365,6 +365,7 @@ section {
 .stat {
   background: var(--paper);
   padding: 22px 20px;
+  text-align: center;
 }
 .stat-v {
   font-family: var(--sans);
