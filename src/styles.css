@@ -138,17 +138,24 @@ a { color: inherit; }
 
 /* ── Buttons ──────────────────────────────────────────── */
 .btn {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 12px 18px;
   border-radius: var(--r-md);
   font-family: var(--sans);
   font-size: 14px;
+  line-height: 1.2;
   font-weight: 600;
   letter-spacing: -0.005em;
   cursor: pointer;
+  background: none;
   border: 1px solid transparent;
+  box-shadow: none;
+  margin: 0;
   text-decoration: none;
   transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
 }

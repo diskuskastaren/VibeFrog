@@ -29,8 +29,8 @@ function Kbd({ children, dark = false, style }) {
 }
 
 /* ── Button ────────────────────────────────────────────────────── */
-function Button({ variant = 'primary', children, onClick, href, style, ...rest }) {
-  const cls = 'btn ' + (variant === 'primary' ? 'btn-primary' : 'btn-ghost');
+function Button({ variant = 'primary', children, onClick, href, style, className = '', ...rest }) {
+  const cls = ('btn ' + (variant === 'primary' ? 'btn-primary' : 'btn-ghost') + ' ' + className).trim();
   if (href) {
     return <a className={cls} href={href} style={style} {...rest}>{children}</a>;
   }

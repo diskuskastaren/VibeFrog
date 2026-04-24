@@ -3,6 +3,12 @@
 function TopBar() {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const close = () => setMenuOpen(false);
+  const openInstall = () => {
+    document.getElementById('install')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.location.hash !== '#install') {
+      window.location.hash = 'install';
+    }
+  };
   return (
     <div className="topbar">
       <div className="wrap topbar-inner">
@@ -37,7 +43,7 @@ function TopBar() {
           <a href="#faq">FAQ</a>
           <a href="#install">Install</a>
         </nav>
-        <Button variant="primary" href="#install" style={{ padding: '8px 14px', fontSize: 13 }} className="topbar-cta">
+        <Button variant="primary" onClick={openInstall} style={{ padding: '8px 14px', fontSize: 13 }} className="topbar-cta">
           Add to Chrome
         </Button>
         {/* Hamburger — mobile only */}
