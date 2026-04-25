@@ -422,6 +422,7 @@ section {
 @media (max-width: 720px) {
   .stats { grid-template-columns: repeat(2, 1fr); }
   pre, code { font-size: 11px !important; overflow-x: auto; }
+  .topbar-cta { display: none; }
 }
 
 /* Section label strip (terminal-window style tag) */

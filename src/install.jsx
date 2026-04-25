@@ -59,6 +59,7 @@ function PopupMock() {
       {/* Floating paper card that looks like the browser toolbar popup */}
       <div style={{
         width: 340,
+        maxWidth: '100%',
         background: '#FAF8F5',
         border: '1px solid rgba(0,0,0,0.12)',
         borderRadius: 12,
@@ -95,8 +96,8 @@ function PopupMock() {
         </div>
       </div>
 
-      {/* Decorative pointer tail */}
-      <div style={{
+      {/* Decorative pointer tail — hidden on mobile */}
+      <div className="popup-tail" style={{
         position: 'absolute',
         top: -16, right: '30%',
         width: 20, height: 20,
@@ -206,6 +207,7 @@ html:
         @media (max-width: 720px) {
           .payload-grid { grid-template-columns: 1fr !important; }
           .install-grid { grid-template-columns: 1fr !important; gap: 80px !important; }
+          .popup-tail { display: none; }
         }
       `}</style>
     </section>

@@ -9,14 +9,20 @@ function ToolCycler() {
     { name: 'Codex',       icon: 'assets/codex-color%20(1).svg' },
     { name: 'Gemini',      icon: 'assets/gemini-color.svg' },
     { name: 'Kimi Code',   icon: 'assets/kimi-color.svg' },
+    { name: 'Qwen',        icon: 'assets/qwen-color.svg' },
   ];
   const [idx, setIdx] = React.useState(0);
   const [visible, setVisible] = React.useState(true);
 
   React.useEffect(() => {
+    tools.forEach(t => { const img = new Image(); img.src = t.icon; });
+  }, []);
+
+  React.useEffect(() => {
     const t = setInterval(() => {
       setVisible(false);
-      setTimeout(() => { setIdx(i => (i + 1) % tools.length); setVisible(true); }, 260);
+      // 320ms > 260ms transition — ensures fade-out completes before src swap
+      setTimeout(() => { setIdx(i => (i + 1) % tools.length); setVisible(true); }, 320);
     }, 2200);
     return () => clearInterval(t);
   }, []);
@@ -28,6 +34,7 @@ function ToolCycler() {
       opacity: visible ? 1 : 0,
       transform: visible ? 'scale(1)' : 'scale(0.72)',
       transition: 'opacity 260ms ease, transform 260ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+      willChange: 'opacity, transform',
       fontFamily: 'var(--sans)', fontWeight: 600, fontSize: 15, color: 'var(--ink)',
     }}>
       {tool.icon && <img src={tool.icon} width={36} height={36} style={{ display: 'block', opacity: 0.85 }} />}
@@ -94,7 +101,7 @@ function Hero() {
               </Button>
             </div>
 
-            <div style={{
+            <div className="hero-kbd-hints" style={{
               marginTop: 40,
               display: 'flex',
               gap: 28,
@@ -361,9 +368,10 @@ function HeroVignette() {
           animation: vf-tip-ok 3.6s ease-in-out infinite;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 720px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
           .hero-vignette { display: none; }
+          .hero-kbd-hints { display: none; }
         }
       `}</style>
     </div>

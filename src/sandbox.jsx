@@ -159,6 +159,35 @@ function Sandbox() {
   return (
     <section id="sandbox" style={{ background: 'var(--ink)', color: 'var(--paper)', borderTop: '1px solid #000' }}>
       <div className="wrap">
+        {isMobile ? (
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 20, color: '#8A8A80' }}>
+              <span style={{ color: '#8A8A80' }}>02 · live sandbox</span>
+            </div>
+            <h2 className="display" style={{ fontSize: 'clamp(36px, 4.2vw, 60px)', color: 'var(--paper)', maxWidth: 780 }}>
+              Try it on desktop.
+            </h2>
+            <p style={{ marginTop: 20, color: '#B8B3A8', fontSize: 17, maxWidth: 440, lineHeight: 1.6 }}>
+              The sandbox needs a keyboard and mouse — it won't work on touch. Open VibeFrog on a desktop browser to try it.
+            </p>
+            <div style={{
+              marginTop: 32,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              padding: '12px 18px',
+              background: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: 10,
+              fontFamily: 'var(--mono)',
+              fontSize: 12,
+              color: '#6A6A60',
+              letterSpacing: '0.08em',
+            }}>
+              ⌨ requires keyboard + mouse
+            </div>
+          </div>
+        ) : (<>
         <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 32, marginBottom: 36, flexWrap: 'wrap' }}>
           <div>
             <div className="eyebrow" style={{ marginBottom: 20, color: '#8A8A80' }}>
@@ -356,7 +385,7 @@ function Sandbox() {
                 from { opacity: 0; transform: translate(-50%, 10px); }
                 to { opacity: 1; transform: translate(-50%, 0); }
               }
-              @media (max-width: 900px) {
+              @media (max-width: 720px) {
                 .sandbox-grid { grid-template-columns: 1fr !important; }
               }
             `}</style>
@@ -374,6 +403,7 @@ function Sandbox() {
         }}>
           tip — on mac, Alt = ⌥ option.  if your browser steals Alt, try a different window focus.
         </div>
+        </>)}
       </div>
     </section>
   );
