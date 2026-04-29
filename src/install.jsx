@@ -25,7 +25,7 @@ function InstallSection() {
             </p>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 30, flexWrap: 'wrap' }}>
-              <Button variant="primary" href="#">
+              <Button variant="primary" href="https://chromewebstore.google.com/detail/kamlignpjeifllkfbnfdmloafgeocdki?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">
                 Add to Chrome
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M7 2v8m0 0L4 7m3 3l3-3M3 12h8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

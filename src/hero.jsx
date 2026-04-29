@@ -88,7 +88,7 @@ function Hero() {
             </div>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
-              <Button variant="primary" href="#install">
+              <Button variant="primary" href="https://chromewebstore.google.com/detail/kamlignpjeifllkfbnfdmloafgeocdki?utm_source=item-share-cb" target="_blank" rel="noopener noreferrer">
                 Add to Chrome
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M3 7h8m0 0L7.5 3.5M11 7l-3.5 3.5"
